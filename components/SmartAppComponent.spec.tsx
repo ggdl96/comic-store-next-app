@@ -6,7 +6,7 @@ import SmartAppComponent from './SmartAppComponent';
 import { store } from '../src/store';
 import { addList } from '../src/features/slice';
 
-describe('AppComponent', () => {
+describe('SmartAppComponent', () => {
   const InitialComponent = () => {
     const dispatch = useDispatch();
     dispatch(addList(['comic 1']));
