@@ -13,10 +13,11 @@ describe('SmartAppComponent', () => {
 
     return <SmartAppComponent />
   }
+
   it('given a provider with a comic on the list, counter should be 1', () => {
 
     render(<Provider store={store}><InitialComponent /></Provider>);
 
-    expect(document.querySelector('span')).toHaveTextContent('1 comics are available');
+    expect(document.querySelector('span')).toHaveTextContent('1 comic is available');
   });
 });
