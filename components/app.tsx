@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function AppComponent( { count } ) {
-  const text = `comic${count !== 1 ? 's': ''} ${count !== 1 ? 'are' : 'is'} available`;
+  const isSingle = count === 1;
+  const text = `comic${ !isSingle ? 's': ''} ${ !isSingle ? 'are' : 'is'} available`;
+
   return <div><input placeholder='Search' /><span>{count} {text}</span></div>
 }
 
