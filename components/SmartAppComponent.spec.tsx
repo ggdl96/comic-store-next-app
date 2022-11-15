@@ -17,6 +17,6 @@ describe('SmartAppComponent', () => {
 
     render(<Provider store={store}><InitialComponent /></Provider>);
 
-    expect(document.querySelector('span')).toHaveTextContent('1');
+    expect(document.querySelector('span')).toHaveTextContent('1 comics are available');
   });
 });

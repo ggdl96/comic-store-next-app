@@ -7,13 +7,13 @@ describe('AppComponent', () => {
     render(<AppComponent count="0" />);
 
 
-    expect(document.querySelector('input').getAttribute('placeholder')).toBe('Buscar');
+    expect(document.querySelector('input').getAttribute('placeholder')).toBe('Search');
   });
 
   it('should display total amount of comics', () => {
     render(<AppComponent count="0" />);
 
 
-    expect(document.querySelector('span')).toHaveTextContent('0');
+    expect(document.querySelector('span')).toHaveTextContent('0 comics are available');
   });
 });
