@@ -1,5 +1,8 @@
 import '../styles/globals.css';
 import React, { useEffect } from 'react';
+import { Provider } from 'react-redux'
+
+import { store } from '../src/store';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -17,7 +20,7 @@ socket.addEventListener('message', function (event) {
 });
 
   }, [])
-  return <Component {...pageProps} />
+  return <Provider store={store}><Component {...pageProps} /></Provider>
 }
 
 export default MyApp
