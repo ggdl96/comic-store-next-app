@@ -41,12 +41,43 @@ describe('AppComponent', () => {
     const onSearch = (a) => {
 
     };
-    render(<AppComponent count={1} onSearch={onSearch} options={['opc 1', 'opc 2']} />);
+    render(<AppComponent count={112} onSearch={onSearch} options={['opc 1', 'opc 2']} />);
 
     await user.type(document.querySelector('input'),  'opc')
 
     expect(document.querySelector('input')).toHaveValue('opc');
     expect(document.querySelector('div.list')).toHaveTextContent('opc 1')
     expect(document.querySelector('div.list')).toHaveTextContent('opc 2')
+  });
+
+  it('should display maximum of 5 options', async () => {
+    const user = userEvent.setup();
+    const onSearch = (a) => {
+
+    };
+    render(<AppComponent count={12} onSearch={onSearch} options={['opc 1', 'opc 2', 'opc 3', 'opc 4', 'opc 5', 'opc 6']} />);
+
+    await user.type(document.querySelector('input'),  'opc')
+
+    expect(document.querySelector('input')).toHaveValue('opc');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 1');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 2');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 3');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 4');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 5');
+    expect(await (await screen.findAllByText(/opc /)).length).toEqual(5);
+  });
+
+  it('should display no list if not options', async () => {
+    const user = userEvent.setup();
+    const onSearch = (a) => {
+
+    };
+    render(<AppComponent count={1} onSearch={onSearch} />);
+
+    await user.type(document.querySelector('input'),  'opc')
+
+    expect(document.querySelector('input')).toHaveValue('opc');
+    expect(document.querySelector('div.list')).toBeNull();
   });
 });
