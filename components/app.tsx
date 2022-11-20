@@ -11,13 +11,15 @@ export default function AppComponent( { count, onSearch, options } ) {
     }
   }
 
-  const optionsToRender = options.map(option => (<span key={`option-${option}`}>{option}</span>));
+  const optionsToRender = options
+    .slice(0, 5)
+    .map(option => (<span key={`option-${option}`}>{option}</span>));
 
   return (
     <div>
       <input placeholder='Search' onChange={onChange}/>
       <span>{count} {text}</span>
-      <div className='list'>{optionsToRender}</div>
+      {options.length ? <div className='list'>{optionsToRender}</div> : null}
     </div>
   );
 }
