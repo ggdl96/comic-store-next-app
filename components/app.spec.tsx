@@ -41,11 +41,12 @@ describe('AppComponent', () => {
     const onSearch = (a) => {
 
     };
-    render(<AppComponent count={1} onSearch={onSearch} />);
+    render(<AppComponent count={1} onSearch={onSearch} options={['opc 1', 'opc 2']} />);
 
-    await user.type(document.querySelector('input'),  '123')
+    await user.type(document.querySelector('input'),  'opc')
 
-    expect(document.querySelector('input')).toHaveValue('123');
-    expect(document.querySelector('div.list')).toHaveTextContent('123 comic')
+    expect(document.querySelector('input')).toHaveValue('opc');
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 1')
+    expect(document.querySelector('div.list')).toHaveTextContent('opc 2')
   });
 });
