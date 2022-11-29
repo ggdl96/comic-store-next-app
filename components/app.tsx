@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function AppComponent( { count, onSearch, options } ) {
+export default function AppComponent( { count, onSearch, options, onClickOption } ) {
   const isSingle = count === 1;
   const text = `comic${ !isSingle ? 's': ''} ${ !isSingle ? 'are' : 'is'} available`;
 
@@ -13,7 +13,7 @@ export default function AppComponent( { count, onSearch, options } ) {
 
   const optionsToRender = options
     .slice(0, 5)
-    .map(option => (<span key={`option-${option}`}>{option}</span>));
+    .map(option => (<span key={`option-${option}`} onClick={onClickOption}>{option}</span>));
 
   return (
     <div>
@@ -28,9 +28,11 @@ AppComponent.propTypes = {
   count: PropTypes.number.isRequired,
   onSearch: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.string),
+  onClickOption: PropTypes.func,
 }
 
 AppComponent.defaultProps = {
   onSearch: () => { },
+  onClickOption: () => { },
   options: [],
 };
