@@ -57,15 +57,17 @@ describe('AppComponent', () => {
     };
     render(<AppComponent count={12} onSearch={onSearch} options={['opc 1', 'opc 2', 'opc 3', 'opc 4', 'opc 5', 'opc 6']} />);
 
-    await user.type(document.querySelector('input'),  'opc')
+    await user.type(document.querySelector('input'),  'opc');
+    const foundOptions = await screen.findAllByText(/opc /);
+    const listElement = document.querySelector('div.list');
 
     expect(document.querySelector('input')).toHaveValue('opc');
-    expect(document.querySelector('div.list')).toHaveTextContent('opc 1');
-    expect(document.querySelector('div.list')).toHaveTextContent('opc 2');
-    expect(document.querySelector('div.list')).toHaveTextContent('opc 3');
-    expect(document.querySelector('div.list')).toHaveTextContent('opc 4');
-    expect(document.querySelector('div.list')).toHaveTextContent('opc 5');
-    expect(await (await screen.findAllByText(/opc /)).length).toEqual(5);
+    expect(listElement).toHaveTextContent('opc 1');
+    expect(listElement).toHaveTextContent('opc 2');
+    expect(listElement).toHaveTextContent('opc 3');
+    expect(listElement).toHaveTextContent('opc 4');
+    expect(listElement).toHaveTextContent('opc 5');
+    expect(foundOptions.length).toEqual(5);
   });
 
   it('should display no list if not options', async () => {
@@ -79,5 +81,24 @@ describe('AppComponent', () => {
 
     expect(document.querySelector('input')).toHaveValue('opc');
     expect(document.querySelector('div.list')).toBeNull();
+  });
+
+  it('should fire an event when option is clicked', async () => {
+    const user = userEvent.setup();
+    const onSearch = (a) => {
+
+    };
+
+    const onClickOption = jest.fn();
+  
+    render(<AppComponent count={1} onSearch={onSearch} options={['opc 1']} onClickOption={onClickOption} />);
+
+    await user.type(document.querySelector('input'),  'opc')
+
+    expect(document.querySelector('input')).toHaveValue('opc');
+    
+    await user.click(await screen.findByText(/opc /));
+
+    expect(onClickOption).toHaveBeenCalledTimes(1);
   });
 });
