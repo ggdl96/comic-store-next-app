@@ -1,4 +1,4 @@
-import AppComponent from './app';
+import AppComponent from './';
 import {render, screen, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
@@ -79,7 +79,6 @@ describe('AppComponent', () => {
 
     await user.type(document.querySelector('input'),  'opc')
 
-    expect(document.querySelector('input')).toHaveValue('opc');
     expect(document.querySelector('div.list')).toBeNull();
   });
 
@@ -94,8 +93,6 @@ describe('AppComponent', () => {
     render(<AppComponent count={1} onSearch={onSearch} options={['opc 1']} onClickOption={onClickOption} />);
 
     await user.type(document.querySelector('input'),  'opc')
-
-    expect(document.querySelector('input')).toHaveValue('opc');
     
     await user.click(await screen.findByText(/opc /));
 

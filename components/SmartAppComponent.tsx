@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import AppComponent from './app';
+import AppComponent from './Search';
 import { ComicStore } from '../model/ComicStore/ComicStore';
 
 export default function SmartAppComponent() {

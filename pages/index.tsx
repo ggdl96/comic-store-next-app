@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import AppComponent from '../components/app';
+import AppComponent from '../components/Search';
 
 export default function Home() {
   return (
