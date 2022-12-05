@@ -21,4 +21,12 @@ describe('List', () => {
     expect(screen.queryByTestId('ul-list')).toBeFalsy();
     expect(noResultsNode).toBeTruthy();
   });
+
+  it('should display a list with more than one comic title', async () => {
+    render(<ListComponent items={['item 1', 'item 2']} />);
+
+    const foundOptions = await screen.findAllByText(/item /);
+
+    expect(foundOptions.length).toEqual(2);
+  });
 });
