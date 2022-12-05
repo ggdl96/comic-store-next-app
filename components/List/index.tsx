@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function ListItem({ item }) {
+  return <li>{item}</li>
+}
 function List({ items }) {
   return (
     <ul data-testid="ul-list">
-    <li>{items[0]}</li>
+      {
+        items.map(item => <ListItem key={`list-item-${item}`} item={item} />)
+      }
   </ul>
   )
 }
