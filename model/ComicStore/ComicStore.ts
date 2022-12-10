@@ -1,6 +1,18 @@
+import Requester from "../Requester";
+
 export class ComicStore {
+    private requester: Requester;
+
+    constructor(requester: Requester) {
+        this.requester = requester;
+    }
+
+    isEmpty() {
+        return this.count() === 0;
+    }
+
     count() {
-      return this.comics.length;
+        return this.requester.count();
     }
 
     listByKeyword(keyword: string) {
@@ -8,15 +20,6 @@ export class ComicStore {
             return [];
         }
 
-        return this.comics.filter(cartoon => cartoon.includes(keyword));
-    }
-    private comics;
-
-    constructor(comics: Array<string>) {
-        this.comics = comics;
-    }
-
-    isEmpty() {
-        return this.count() === 0;
+        return this.requester.get(keyword);
     }
 }
