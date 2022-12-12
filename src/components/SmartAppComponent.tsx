@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import SearchComponent from './Search';
 import ListComponent from './List';
 import { ComicStore } from '../model/ComicStore/ComicStore';
-import { addList, fetchOptions } from '../src/features/slice';
+import { addList, fetchOptions } from '../features/slice';
 
 export default function SmartAppComponent({ requester }) {
     const comicsOptionList = useSelector(state => state.comics.options);

@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import AppComponent from '../components/SmartAppComponent';
-import Requester from '../model/Requester';
+import AppComponent from '../src/components/SmartAppComponent';
+import Requester from '../src/model/Requester';
 
 export default function Home() {
   const requester = new Requester(['comic 1', 'comic 2']);
