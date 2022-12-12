@@ -2,11 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface CounterState {
-  list: string[]
+  list: string[],
+  options: string[],
+  count: number,
 }
 
 const initialState: CounterState = {
   list: [],
+  options: [],
+  count: 0,
 }
 
 export const counterSlice = createSlice({
@@ -14,16 +18,15 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addList: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.list = action.payload
+    },
+    fetchOptions: (state, action) => {
+      state.options = action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addList } = counterSlice.actions
+export const { addList, fetchOptions } = counterSlice.actions
 
 export default counterSlice.reducer
