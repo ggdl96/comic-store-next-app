@@ -17,16 +17,16 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    addList: (state, action) => {
+    setList: (state, action) => {
       state.list = action.payload
     },
-    fetchOptions: (state, action) => {
+    setOptions: (state, action) => {
       state.options = action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addList, fetchOptions } = counterSlice.actions
+export const { setList, setOptions } = counterSlice.actions
 
 export default counterSlice.reducer

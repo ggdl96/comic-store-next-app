@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 import SmartAppComponent from './SmartAppComponent';
 import { store } from '../store';
-import { addList, fetchOptions } from '../features/slice';
+import { setList, setOptions } from '../features/slice';
 import Requester from '../model/Requester';
 
 describe('SmartAppComponent', () => {

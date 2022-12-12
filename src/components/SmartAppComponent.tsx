@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import SearchComponent from './Search';
 import ListComponent from './List';
 import { ComicStore } from '../model/ComicStore/ComicStore';
-import { addList, fetchOptions } from '../features/slice';
+import { setList, setOptions } from '../features/slice';
 
 export default function SmartAppComponent({ requester }) {
     const comicsOptionList = useSelector(state => state.comics.options);
@@ -14,12 +14,12 @@ export default function SmartAppComponent({ requester }) {
     const comicStore = new ComicStore(requester);
 
     const handleClickOption = (option) => {
-      dispatch(addList(comicStore.listByKeyword(option)));
+      dispatch(setList(comicStore.listByKeyword(option)));
     }
 
     const handleSearchOption = (value: string) => {
       const searchedOptions = comicStore.listByKeyword(value);
-      dispatch(fetchOptions(searchedOptions));
+      dispatch(setOptions(searchedOptions));
     }
 
   return (
