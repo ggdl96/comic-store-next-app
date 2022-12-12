@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ListItem({ item }) {
-  return <li>{item}</li>
+  return <li data-testid={`item-${item}`}>{item}</li>
 }
 function List({ items }) {
   return (

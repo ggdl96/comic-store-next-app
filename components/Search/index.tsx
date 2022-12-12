@@ -7,13 +7,13 @@ export default function AppComponent( { count, onSearch, options, onClickOption 
 
   const onChange = (e) => {
     if (e.target.value.length >= 3) {
-      onSearch();
+      onSearch(e.target.value);
     }
   }
 
   const optionsToRender = options
     .slice(0, 5)
-    .map(option => (<span key={`option-${option}`} onClick={onClickOption}>{option}</span>));
+    .map(option => (<span key={`option-${option}`} onClick={() => onClickOption(option)}>{option}</span>));
 
   return (
     <div>
