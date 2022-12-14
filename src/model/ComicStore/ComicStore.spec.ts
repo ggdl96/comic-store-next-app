@@ -3,15 +3,13 @@ import Requester from '../Requester';
 
 describe('AppComponent', () => {
   it('should allow create a ComicStore with empty comics', () => {
-    const requester = new Requester([]);
-    const comicStore = new ComicStore(requester);
+    const comicStore = createComicStore([]);
 
     expect(comicStore.isEmpty()).toBeTruthy();
   });
 
   it('should allow create a ComicStore with comics', () => {
-    const requester = new Requester(['Cartoon 1']);
-    const comicStore = new ComicStore(requester);
+    const comicStore = createComicStore(['Cartoon 1']);
 
     expect(comicStore.isEmpty()).toBeFalsy();
   });
@@ -19,8 +17,7 @@ describe('AppComponent', () => {
   it('should allow to search comics by keyword', () => {
     const resultsToExpect = ['first order', 'the first'];
     const comicList = [...resultsToExpect, 'another one'];
-    const requester = new Requester(comicList);
-    const comicStore = new ComicStore(requester);
+    const comicStore = createComicStore(comicList);
 
     const comics = comicStore.listByKeyword('fir');
 
@@ -29,9 +26,8 @@ describe('AppComponent', () => {
 
   it('should not allow to search when less than 3 letters', () => {
     const comicList = ['first order', 'the first', 'another one'];
-
-    const requester = new Requester(comicList);
-    const comicStore = new ComicStore(requester);
+    const comicStore = createComicStore(comicList);
+  
     const comics = comicStore.listByKeyword('fi');
 
     expect(comics).toEqual([]);
@@ -39,11 +35,17 @@ describe('AppComponent', () => {
 
   it('should return amount of comics', () => {
     const comicList = ['first order', 'the first', 'another one'];
-    const requester = new Requester(comicList);
-    const comicStore = new ComicStore(requester);
+    const comicStore = createComicStore(comicList);
 
     const comicsCount = comicStore.count();
 
     expect(comicsCount).toEqual(3);
   });
 });
+
+function createComicStore(comicList: string[]) {
+  const requester = new Requester(comicList);
+  const comicStore = new ComicStore(requester);
+
+  return comicStore;
+}
