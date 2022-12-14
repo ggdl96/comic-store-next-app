@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function AppComponent( { count, onSearch, options, onClickOption } ) {
+export default function SearchComponent( { count, onSearch, options, onClickOption } ) {
   const isSingle = count === 1;
   const text = `comic${ !isSingle ? 's': ''} ${ !isSingle ? 'are' : 'is'} available`;
 
@@ -24,13 +24,13 @@ export default function AppComponent( { count, onSearch, options, onClickOption 
   );
 }
 
-AppComponent.propTypes = {
+SearchComponent.propTypes = {
   count: PropTypes.number.isRequired,
   onSearch: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.string),
   onClickOption: PropTypes.func.isRequired,
 }
 
-AppComponent.defaultProps = {
+SearchComponent.defaultProps = {
   options: [],
 };

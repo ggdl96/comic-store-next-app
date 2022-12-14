@@ -16,7 +16,7 @@ function List({ items }) {
 function EmptyList() {
   return <span>No results</span>
 }
-export default function AppComponent({ items }) {
+export default function ListComponent({ items }) {
   return (
     <div>
       {
@@ -26,10 +26,10 @@ export default function AppComponent({ items }) {
   );
 }
 
-AppComponent.propTypes = {
+ListComponent.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string),
 }
 
-AppComponent.defaultProps = {
+ListComponent.defaultProps = {
   items: [],
 };
