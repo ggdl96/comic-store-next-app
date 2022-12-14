@@ -1,25 +1,25 @@
-import AppComponent from './';
+import SearchComponent from './';
 import {render, screen, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
 describe('AppComponent', () => {
-  it('should have an input with "Buscar" placeholder', () => {
-    render(<AppComponent count={0} />);
+  it('should have an input with "Search" placeholder', () => {
+    render(<SearchComponent count={0} />);
 
 
     expect(document.querySelector('input').getAttribute('placeholder')).toBe('Search');
   });
 
   it('should display total amount of comics', () => {
-    render(<AppComponent count={0} />);
+    render(<SearchComponent count={0} />);
 
 
     expect(document.querySelector('span')).toHaveTextContent('0 comics are available');
   });
 
   it('should display total amount of comics', () => {
-    render(<AppComponent count={1} />);
+    render(<SearchComponent count={1} />);
 
     expect(document.querySelector('span')).toHaveTextContent('1 comic is available');
   });
@@ -28,7 +28,7 @@ describe('AppComponent', () => {
   it('should search when 3 letters are written', async () => {
     const user = userEvent.setup();
     const onSearch = jest.fn();
-    render(<AppComponent count={1} onSearch={onSearch} />);
+    render(<SearchComponent count={1} onSearch={onSearch} />);
 
     await user.type(document.querySelector('input'),  '123')
 
@@ -41,7 +41,7 @@ describe('AppComponent', () => {
     const onSearch = (a) => {
 
     };
-    render(<AppComponent count={112} onSearch={onSearch} options={['opc 1', 'opc 2']} />);
+    render(<SearchComponent count={112} onSearch={onSearch} options={['opc 1', 'opc 2']} />);
 
     await user.type(document.querySelector('input'),  'opc')
 
@@ -55,7 +55,7 @@ describe('AppComponent', () => {
     const onSearch = (a) => {
 
     };
-    render(<AppComponent count={12} onSearch={onSearch} options={['opc 1', 'opc 2', 'opc 3', 'opc 4', 'opc 5', 'opc 6']} />);
+    render(<SearchComponent count={12} onSearch={onSearch} options={['opc 1', 'opc 2', 'opc 3', 'opc 4', 'opc 5', 'opc 6']} />);
 
     await user.type(document.querySelector('input'),  'opc');
     const foundOptions = await screen.findAllByText(/opc /);
@@ -75,7 +75,7 @@ describe('AppComponent', () => {
     const onSearch = (a) => {
 
     };
-    render(<AppComponent count={1} onSearch={onSearch} />);
+    render(<SearchComponent count={1} onSearch={onSearch} />);
 
     await user.type(document.querySelector('input'),  'opc')
 
@@ -90,7 +90,7 @@ describe('AppComponent', () => {
 
     const onClickOption = jest.fn();
   
-    render(<AppComponent count={1} onSearch={onSearch} options={['opc 1']} onClickOption={onClickOption} />);
+    render(<SearchComponent count={1} onSearch={onSearch} options={['opc 1']} onClickOption={onClickOption} />);
 
     await user.type(document.querySelector('input'),  'opc')
     
