@@ -4,13 +4,11 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 export interface CounterState {
   list: string[],
   options: string[],
-  count: number,
 }
 
 const initialState: CounterState = {
   list: [],
   options: [],
-  count: 0,
 }
 
 export const counterSlice = createSlice({
