@@ -26,13 +26,11 @@ export default function AppComponent( { count, onSearch, options, onClickOption 
 
 AppComponent.propTypes = {
   count: PropTypes.number.isRequired,
-  onSearch: PropTypes.func,
+  onSearch: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.string),
-  onClickOption: PropTypes.func,
+  onClickOption: PropTypes.func.isRequired,
 }
 
 AppComponent.defaultProps = {
-  onSearch: () => { },
-  onClickOption: () => { },
   options: [],
 };
