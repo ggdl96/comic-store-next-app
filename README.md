@@ -6,3 +6,31 @@ On main page, there must be a search input. An initial text must be present, "Se
 next to the input, a counter for existing comics title should be displayed. "x comics are available"
 
 After search, comics that matched should be displayed at bottom.
+
+## Installation
+
+In order to run this project, you will need node and npm. A convenient way is to install them via: [nvm](https://github.com/nvm-sh/nvm).
+
+after that, run
+
+```bash
+nvm install 16
+```
+
+```bash
+npm install
+```
+
+## Commands
+
+Run on dev
+
+```bash
+npm run dev
+```
+
+Run tests
+
+```bash
+npm run tests
+```
