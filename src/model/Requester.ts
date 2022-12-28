@@ -1,7 +1,7 @@
 export default class Requester {
-    private data: Array<String>;
+    private data: Array<string>;
 
-    constructor(data: Array<String>) {
+    constructor(data: Array<string>) {
         this.data = data;
     }
 
@@ -9,7 +9,11 @@ export default class Requester {
         return this.data.length;
     }
 
-    get(search) {
-        return this.data.filter(item => item.includes(search));
+    get(search): Promise<string[]> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(this.data.filter(item => item.includes(search)));
+            }, 3000)
+        });
     }
 }

@@ -14,21 +14,21 @@ describe('AppComponent', () => {
     expect(comicStore.isEmpty()).toBeFalsy();
   });
 
-  it('should allow to search comics by keyword', () => {
+  it('should allow to search comics by keyword', async () => {
     const resultsToExpect = ['first order', 'the first'];
     const comicList = [...resultsToExpect, 'another one'];
     const comicStore = createComicStore(comicList);
 
-    const comics = comicStore.listByKeyword('fir');
+    const comics = await comicStore.listByKeyword('fir');
 
     expect(comics).toEqual(resultsToExpect);
   });
 
-  it('should not allow to search when less than 3 letters', () => {
+  it('should not allow to search when less than 3 letters', async () => {
     const comicList = ['first order', 'the first', 'another one'];
     const comicStore = createComicStore(comicList);
   
-    const comics = comicStore.listByKeyword('fi');
+    const comics = await comicStore.listByKeyword('fi');
 
     expect(comics).toEqual([]);
   });

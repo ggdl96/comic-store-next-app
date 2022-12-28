@@ -15,9 +15,9 @@ export class ComicStore {
         return this.requester.count();
     }
 
-    listByKeyword(keyword: string) {
+    listByKeyword(keyword: string): Promise<string[]> {
         if (keyword.length < 3) {
-            return [];
+            return new Promise((resolve)=> resolve([]));
         }
 
         return this.requester.get(keyword);

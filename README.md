@@ -7,6 +7,10 @@ next to the input, a counter for existing comics title should be displayed. "x c
 
 After search, comics that matched should be displayed at bottom.
 
+--
+
+Search for comics should be async, as we should wait for the results in order to render them.
+
 ## Installation
 
 In order to run this project, you will need node and npm. A convenient way is to install them via: [nvm](https://github.com/nvm-sh/nvm).
