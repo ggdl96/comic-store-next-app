@@ -18,6 +18,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["jest"],
     "plugins": [
       {
         "name": "next"
@@ -26,12 +27,19 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "pages/**/*.ts",
+    "pages/**/*.tsx",
     "next.config.mjs",
-    ".next/types/**/*.ts"
-, "pages/index.tsx"  ],
+    ".next/types/**/*.ts",
+    "pages/index.tsx"
+],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "cypress/cypress.config.ts",
+    "cypress/tsconfig.json",
+    "cypress/**/*.spec.ts",
+    "cypress/**/*.spec.tsx",
+  ],
 }
