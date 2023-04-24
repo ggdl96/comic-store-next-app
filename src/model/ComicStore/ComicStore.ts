@@ -17,7 +17,7 @@ export class ComicStore {
 
     listByKeyword(keyword: string): Promise<string[]> {
         if (keyword.length < 3) {
-            return new Promise((resolve)=> resolve([]));
+            return new Promise(resolve => resolve([]));
         }
 
         return this.requester.get(keyword);

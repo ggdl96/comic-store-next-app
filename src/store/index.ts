@@ -1,10 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
-import comicsReducer from '../features/slice'
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+
+import comicsReducer from '../features/slice';
+
+export const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
     comics: comicsReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -5,27 +5,30 @@ import PropTypes from 'prop-types';
 import SearchComponent from './Search';
 import ListComponent from './List';
 import { ComicStore } from '../model/ComicStore/ComicStore';
-import { setList, setOptions } from '../features/slice';
+import { setList, searchOptions } from '../features/slice';
 import Requester from '../model/Requester';
 
+import {  RootState } from '../store';
 interface SmartAppComponentProps {
-  requester: Requester,
+  comicStore: ComicStore,
 }
 
-export default function SmartAppComponent({ requester }: SmartAppComponentProps) {
-    const comicsOptionList = useSelector(state => state.comics.options);
-    const comicsList = useSelector(state => state.comics.list);
+export default function SmartAppComponent({ comicStore }: SmartAppComponentProps) {
+    const comicsOptionList = useSelector((state: RootState) => state.comics.options);
+    const comicsList = useSelector((state: RootState) => state.comics.list);
     const dispatch = useDispatch();
 
-    const comicStore = new ComicStore(requester);
-
     const handleClickOption = (option: string) => {
-      dispatch(setList(comicStore.listByKeyword(option)));
+      const getListByKeyword = async () => {
+        const list = await comicStore.listByKeyword(option);
+        dispatch(setList(list));
+      }
+
+      getListByKeyword();
     }
 
     const handleSearchOption = (value: string) => {
-      const searchedOptions = comicStore.listByKeyword(value);
-      dispatch(setOptions(searchedOptions));
+      dispatch(searchOptions(value));
     }
 
   return (
