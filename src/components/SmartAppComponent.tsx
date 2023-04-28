@@ -38,7 +38,7 @@ export default function SmartAppComponent({ comicStore }: SmartAppComponentProps
         onSearch={handleSearchOption}
         onClickOption={handleClickOption}
         options={[...comicsOptionList]} />
-      { comicsList ? <ListComponent items={comicsList} /> : null }
+      <ListComponent items={comicsList} />
     </>
   );
 }
