@@ -1,9 +1,10 @@
 import Requester from "../Requester";
+import RequesterError from "../RequesterError";
 
 export class ComicStore {
-    private requester: Requester;
+    private requester: Requester | RequesterError;
 
-    constructor(requester: Requester) {
+    constructor(requester: Requester | RequesterError) {
         this.requester = requester;
     }
 

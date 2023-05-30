@@ -1,5 +1,6 @@
 import { ComicStore } from './ComicStore';
 import Requester from '../Requester';
+import RequesterError from '../RequesterError';
 
 describe('AppComponent', () => {
   it('should allow create a ComicStore with empty comics', () => {
@@ -41,10 +42,27 @@ describe('AppComponent', () => {
 
     expect(comicsCount).toEqual(3);
   });
+
+  it('should throw exception if request is rejected', async () => {
+    const comicList = ['another one'];
+    const comicStore = createComicStoreThatFails(comicList);
+    try {
+      await comicStore.listByKeyword('fir');
+    } catch (error) {
+      expect(error).toEqual({ error: 'error' });
+    }
+  });
 });
 
 function createComicStore(comicList: string[]) {
   const requester = new Requester(comicList);
+  const comicStore = new ComicStore(requester);
+
+  return comicStore;
+}
+
+function createComicStoreThatFails(comicList: string[]) {
+  const requester = new RequesterError(comicList);
   const comicStore = new ComicStore(requester);
 
   return comicStore;
