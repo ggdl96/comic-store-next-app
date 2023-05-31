@@ -1,19 +1,5 @@
-export default class Requester {
-    private data: string[];
+export default abstract class Requester {
+    abstract count();
 
-    constructor(data: string[]) {
-        this.data = data;
-    }
-
-    count() {
-        return this.data.length;
-    }
-
-    get(search): Promise<string[]> {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(this.data.filter(item => item.includes(search)));
-            }, 300)
-        });
-    }
+    abstract get(search: string): Promise<string[]>;
 }

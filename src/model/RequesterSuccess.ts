@@ -1,6 +1,6 @@
 import Requester from "./Requester";
 
-export default class RequesterError extends Requester {
+export default class RequesterSuccess extends Requester {
     private data: string[];
 
     constructor(data: string[]) {
@@ -13,9 +13,9 @@ export default class RequesterError extends Requester {
     }
 
     get(search): Promise<string[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             setTimeout(() => {
-                reject({ error: 'error' });
+                resolve(this.data.filter(item => item.includes(search)));
             }, 300)
         });
     }

@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 import SmartAppComponent from './SmartAppComponent';
 import { store, sagaMiddleware } from '../store';
-import Requester from '../model/Requester';
+import RequesterSuccess from '../model/RequesterSuccess';
 import buildSaga from '../features/sagas';
 import { ComicStore } from '../model/ComicStore/ComicStore';
 describe('SmartAppComponent', () => {
@@ -16,7 +16,7 @@ describe('SmartAppComponent', () => {
   }
 
   it('given a provider with a comic on the list, counter should be 1', () => {
-    const requester = new Requester(['comic 1', 'comic 2']);
+    const requester = new RequesterSuccess(['comic 1', 'comic 2']);
     const comicStore = new ComicStore(requester);
 
     sagaMiddleware.run(buildSaga(comicStore))
@@ -28,7 +28,7 @@ describe('SmartAppComponent', () => {
   });
 
   it('given a selected option, a list of comics should be displayed', async () => {
-    const requester = new Requester(['comic 1', 'comic 2']);
+    const requester = new RequesterSuccess(['comic 1', 'comic 2']);
     const comicStore = new ComicStore(requester);
 
     sagaMiddleware.run(buildSaga(comicStore))

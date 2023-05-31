@@ -1,5 +1,5 @@
 import { ComicStore } from './ComicStore';
-import Requester from '../Requester';
+import RequesterSuccess from '../RequesterSuccess';
 import RequesterError from '../RequesterError';
 
 describe('AppComponent', () => {
@@ -55,7 +55,7 @@ describe('AppComponent', () => {
 });
 
 function createComicStore(comicList: string[]) {
-  const requester = new Requester(comicList);
+  const requester = new RequesterSuccess(comicList);
   const comicStore = new ComicStore(requester);
 
   return comicStore;
