@@ -17,8 +17,8 @@ export default function SearchComponent( { count, onSearch, options, onClickOpti
 
   return (
     <div>
-      <input placeholder='Search' onChange={onChange}/>
-      <span>{count} {text}</span>
+      <input data-testid="input" placeholder='Search' onChange={onChange}/>
+      <span data-testid="comics-counter">{count} {text}</span>
       {options.length ? <div className='list'>{optionsToRender}</div> : null}
     </div>
   );

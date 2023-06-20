@@ -15,8 +15,8 @@ describe('SmartAppComponent', () => {
     return <SmartAppComponent comicStore={comicStore} />
   }
 
-  it('given a provider with a comic on the list, counter should be 1', () => {
-    const requester = new RequesterSuccess(['comic 1', 'comic 2']);
+  it('given a provider with a comic on the list, counter should be 1', async () => {
+    const requester = new RequesterSuccess(['comic 1']);
     const comicStore = new ComicStore(requester);
 
     sagaMiddleware.run(buildSaga(comicStore))
@@ -24,7 +24,8 @@ describe('SmartAppComponent', () => {
 
     render(<Provider store={store}><InitialComponent comicStore={comicStore}  /></Provider>);
 
-    expect(document.querySelector('span')).toHaveTextContent('2 comics are available');
+    const counterElement = await screen.findByTestId('comics-counter');
+    expect(counterElement).toHaveTextContent('1 comic is available');
   });
 
   it('given a selected option, a list of comics should be displayed', async () => {
@@ -37,8 +38,9 @@ describe('SmartAppComponent', () => {
 
     render(<Provider store={store}><InitialComponent comicStore={comicStore} /></Provider>);
 
+    const _input = await screen.findByTestId('input');
     // input 3 letters
-    await user.type(document.querySelector('input'), 'comic 1');
+    await user.type(_input, 'comic 1');
 
     // click option
     await user.click(await screen.findByText(/comic 1/));

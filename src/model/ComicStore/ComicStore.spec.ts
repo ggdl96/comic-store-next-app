@@ -3,16 +3,16 @@ import RequesterSuccess from '../RequesterSuccess';
 import RequesterError from '../RequesterError';
 
 describe('AppComponent', () => {
-  it('should allow create a ComicStore with empty comics', () => {
+  it('should allow create a ComicStore with empty comics', async () => {
     const comicStore = createComicStore([]);
 
-    expect(comicStore.isEmpty()).toBeTruthy();
+    expect(await comicStore.isEmpty()).toBeTruthy();
   });
 
-  it('should allow create a ComicStore with comics', () => {
+  it('should allow create a ComicStore with comics', async () => {
     const comicStore = createComicStore(['Cartoon 1']);
 
-    expect(comicStore.isEmpty()).toBeFalsy();
+    expect(await comicStore.isEmpty()).toBeFalsy();
   });
 
   it('should allow to search comics by keyword', async () => {
@@ -28,17 +28,17 @@ describe('AppComponent', () => {
   it('should not allow to search when less than 3 letters', async () => {
     const comicList = ['first order', 'the first', 'another one'];
     const comicStore = createComicStore(comicList);
-  
+
     const comics = await comicStore.listByKeyword('fi');
 
     expect(comics).toEqual([]);
   });
 
-  it('should return amount of comics', () => {
+  it('should return amount of comics', async () => {
     const comicList = ['first order', 'the first', 'another one'];
     const comicStore = createComicStore(comicList);
 
-    const comicsCount = comicStore.count();
+    const comicsCount = await comicStore.count();
 
     expect(comicsCount).toEqual(3);
   });
@@ -48,6 +48,17 @@ describe('AppComponent', () => {
     const comicStore = createComicStoreThatFails(comicList);
     try {
       await comicStore.listByKeyword('fir');
+    } catch (error) {
+      expect(error).toEqual({ error: 'error' });
+    }
+  });
+
+  it('should throw exception on count if request is rejected', async () => {
+    const comicList = ['first order', 'the first', 'another one'];
+    const comicStore = createComicStoreThatFails(comicList);
+
+    try {
+      await comicStore.count();
     } catch (error) {
       expect(error).toEqual({ error: 'error' });
     }

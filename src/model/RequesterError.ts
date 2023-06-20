@@ -8,8 +8,12 @@ export default class RequesterError extends Requester {
         this.data = data;
     }
 
-    count() {
-        return this.data.length;
+    count(): Promise<number> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject({ error: 'error' });
+            }, 300)
+        });
     }
 
     get(search): Promise<string[]> {

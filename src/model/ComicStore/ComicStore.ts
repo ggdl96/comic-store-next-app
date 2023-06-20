@@ -7,11 +7,11 @@ export class ComicStore {
         this.requester = requester;
     }
 
-    isEmpty() {
-        return this.count() === 0;
+    async isEmpty(): Promise<boolean> {
+        return await this.count() === 0;
     }
 
-    count() {
+    count(): Promise<number> {
         return this.requester.count();
     }
 
