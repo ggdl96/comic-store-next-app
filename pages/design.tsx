@@ -1,10 +1,11 @@
 import Header from "../src/components/header";
+import MainContent from "../src/components/main-content";
 
 function Design() {
   return (
-    <div style={{ backgroundColor: "red" }}>
+    <div>
       <Header />
-      <section></section>
+      <MainContent />
       <footer>
         <section>
           <h3>all</h3>
