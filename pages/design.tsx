@@ -1,3 +1,4 @@
+import Footer from "../src/components/footer";
 import Header from "../src/components/header";
 import MainContent from "../src/components/main-content";
 
@@ -6,11 +7,7 @@ function Design() {
     <div>
       <Header />
       <MainContent />
-      <footer>
-        <section>
-          <h3>all</h3>
-        </section>
-      </footer>
+      <Footer />
     </div>
   );
 }
