@@ -1,3 +1,5 @@
+import Button from "../button";
+
 function DetailContent() {
   return (
     <main className="grid grid-rows-2 w-full sm:grid-rows-none sm:grid-cols-2">
@@ -21,14 +23,10 @@ function DetailContent() {
         </div>
         <div className="grid grid-rows-2">
           <div className="flex py-2">
-            <button className="flex grow items-center justify-center bg-purple-400 p-4 rounded-xl w-full">
-              Add to cart
-            </button>
+            <Button>Add to cart</Button>
           </div>
           <div className="flex py-2">
-            <button className="flex grow items-center justify-center bg-purple-400 p-4 rounded-xl w-full">
-              Buy now
-            </button>
+            <Button>Buy now</Button>
           </div>
         </div>
       </section>
