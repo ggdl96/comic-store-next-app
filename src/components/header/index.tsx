@@ -16,7 +16,9 @@ function Header() {
           </Link>
         </div>
         <div className="flex flex-row grow space-x-2 max-sm:hidden">
+        <Link href="/design-list">
           <h2 className="text-xl">all</h2>
+          </Link>
           <h2 className="text-xl">best sellers</h2>
         </div>
         <div className="sm:hidden">
