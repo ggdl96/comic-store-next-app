@@ -7,7 +7,7 @@ const MainContent = () => {
         <div className="bg-yellow-500 w-6/12 h-full"></div>
         <div className="bg-red-500 w-6/12 h-full"></div>
       </div>
-      <div className="overflow-x-auto overscroll-auto h-48 lg:h-96 md:h-72 sm:h-44 py-4 w-full">
+      <div className="overflow-x-auto overscroll-auto py-4 w-full">
         <div className="flex flex-row h-full space-x-2 grow">
           <ComicSliderItem color="yellow" />
           <ComicSliderItem color="blue" />
@@ -17,7 +17,7 @@ const MainContent = () => {
           <ComicSliderItem color="red" />
         </div>
       </div>
-      <div className="overflow-x-auto overscroll-auto h-48 lg:h-96 md:h-72 sm:h-44 py-4 w-full">
+      <div className="overflow-x-auto overscroll-auto py-4 w-full">
         <div className="flex flex-row h-full space-x-2 grow">
           <ComicSliderItem color="green" />
           <ComicSliderItem color="gray" />
