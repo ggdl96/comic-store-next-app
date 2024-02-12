@@ -12,4 +12,10 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    {
+      pattern:
+        /(bg|text|border)-(transparent|current|white|purple|midnight|metal|tahiti|silver|bermuda|green|emerald)/,
+    },
+  ]
 };
