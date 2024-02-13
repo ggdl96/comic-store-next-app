@@ -66,5 +66,5 @@ export default function SmartAppComponent({
 }
 
 SmartAppComponent.propTypes = {
-  requester: PropTypes.instanceOf(RequesterSuccess).isRequired,
+  comicStore: PropTypes.instanceOf(ComicStore).isRequired,
 };
