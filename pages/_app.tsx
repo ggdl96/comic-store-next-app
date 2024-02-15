@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 
 import { store, sagaMiddleware } from '../src/store';
 import buildSaga from '../src/features/sagas';
-import Requester from '../src/model/Requester';
+import Requester from '../src/model/RequesterSuccess';
 import { ComicStore } from '../src/model/ComicStore/ComicStore';
 
 const requester = new Requester(['comic 1', 'comic 2']);
