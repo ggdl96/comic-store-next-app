@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -33,13 +29,15 @@
     "pages/**/*.tsx",
     "next.config.mjs",
     ".next/types/**/*.ts",
-    "pages/index.tsx"
-, "__tests__/_app.spec.tsx", "__tests__/indext.spec.tsx", "__tests__/design-checkout/components/main/index.spec.tsx"],
+    "pages/index.tsx",
+    "__tests__/**/*.ts",
+    "__tests__/**/*.tsx"
+  ],
   "exclude": [
     "node_modules",
     "cypress/cypress.config.ts",
     "cypress/tsconfig.json",
     "cypress/**/*.spec.ts",
-    "cypress/**/*.spec.tsx",
-  ],
+    "cypress/**/*.spec.tsx"
+  ]
 }
