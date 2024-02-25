@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Home from ".";
+import Home from "../pages";
 import { store } from '../src/store';
 
 describe("Index page test", () => {

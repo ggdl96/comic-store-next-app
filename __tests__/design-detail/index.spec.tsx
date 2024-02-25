@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Detail from ".";
+import React from "react";
+import Detail from "../../pages/design-detail";
 
 describe("Desgin Detail component test", () => {
   test("should render properly", async () => {

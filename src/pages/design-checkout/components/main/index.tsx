@@ -1,7 +1,7 @@
-import Button from "../../../../src/components/button";
-import Input from "../../../../src/components/input";
-import MainCheckout from "../../../../src/components/layouts/main-checkout";
-import OrderSummaryItem from "../../../../src/components/order-summary-item";
+import Button from "../../../../components/button";
+import Input from "../../../../components/input";
+import MainCheckout from "../../../../components/layouts/main-checkout";
+import OrderSummaryItem from "../../../../components/order-summary-item";
 
 function Main() {
   return (

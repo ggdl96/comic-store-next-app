@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import Design from ".";
+import { render } from "@testing-library/react";
+import React from "react";
+import Design from "../../pages/design"
 
 describe("Desgin component test", () => {
   test("should render properly", async () => {

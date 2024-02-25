@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import App from "./_app";
+import App from "../pages/_app";
 
 describe("_app test", () => {
   test("should render correctly", () => {

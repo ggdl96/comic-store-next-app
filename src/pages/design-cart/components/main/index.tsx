@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Button from "../../../../src/components/button";
-import CartItem from "../../../../src/components/cart-item";
-import MainCheckout from "../../../../src/components/layouts/main-checkout";
+import Button from "../../../../components/button";
+import CartItem from "../../../../components/cart-item";
+import MainCheckout from "../../../../components/layouts/main-checkout";
 
 function Main() {
   return (

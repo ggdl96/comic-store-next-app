@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import DesignList from ".";
+import React from "react";
+import Main from ".";
 
-describe("Desgin List page test", () => {
+describe("Desgin List Main component test", () => {
   test("should render properly", async () => {
-    render(<DesignList />);
+    render(<Main />);
 
     const label = await screen.findAllByText(/Results for:/);
 

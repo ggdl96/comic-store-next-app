@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
-import DesignCart from ".";
+import DesignCart from "../../pages/design-cart";
 
 describe("Desgin Cart page test", () => {
   test("should render properly", async () => {

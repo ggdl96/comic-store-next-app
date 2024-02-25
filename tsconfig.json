@@ -34,7 +34,7 @@
     "next.config.mjs",
     ".next/types/**/*.ts",
     "pages/index.tsx"
-],
+, "__tests__/_app.spec.tsx", "__tests__/indext.spec.tsx", "__tests__/design-checkout/components/main/index.spec.tsx"],
   "exclude": [
     "node_modules",
     "cypress/cypress.config.ts",
