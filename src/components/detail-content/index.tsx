@@ -25,10 +25,10 @@ function DetailContent() {
           </div>
           <div className="grid grid-rows-2">
             <div className="flex py-2">
-              <Button>Add to cart</Button>
+              <Button className="add-to-cart-btn">Add to cart</Button>
             </div>
             <div className="flex py-2">
-              <Button>Buy now</Button>
+              <Button className="buy-now-btn">Buy now</Button>
             </div>
           </div>
         </section>

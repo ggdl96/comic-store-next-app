@@ -1,11 +1,17 @@
-type Props = { children: string };
+type Props = { children: string; className?: string };
 
-const Button = ({ children }: Props) => {
+const Button = ({ children, className }: Props) => {
   return (
-    <button className="flex grow items-center justify-center bg-purple-400 p-4 rounded-xl w-full">
+    <button
+      className={`flex grow items-center justify-center bg-purple-400 p-4 rounded-xl w-full ${className}`}
+    >
       {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  className: "",
 };
 
 export default Button;

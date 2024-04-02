@@ -19,7 +19,7 @@ function Main() {
         <section className="flex flex-row justify-center">
           <div className="w-full sm:w-3/5 md:w-6/12 lg:w-5/12 xl:w-3/12">
             <Link href="/design-checkout">
-              <Button>Checkout</Button>
+              <Button className="checkout-button">Checkout</Button>
             </Link>
           </div>
         </section>

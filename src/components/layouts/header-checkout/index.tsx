@@ -12,6 +12,7 @@ function HeaderCheckout() {
       >
         <div>
           <button
+           className="go-back-btn"
             onClick={() => {
               router.back();
             }}
