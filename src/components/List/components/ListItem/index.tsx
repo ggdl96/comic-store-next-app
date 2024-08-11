@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-function ListItem({ item }) {
-  return <li data-testid={`item-${item}`}>{item}</li>
+interface Props {
+  item: string;
 }
 
-ListItem.propTypes = {
-  item: PropTypes.string.isRequired,
-}
+const ListItem = ({ item }: Props) => {
+  return <li data-testid={`item-${item}`}>{item}</li>;
+};
 
 export default ListItem;

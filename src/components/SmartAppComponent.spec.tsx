@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Provider, useDispatch } from 'react-redux'
+import { Provider } from 'react-redux'
 import userEvent from '@testing-library/user-event'
 
 import SmartAppComponent from './SmartAppComponent';
@@ -8,10 +8,9 @@ import { store, sagaMiddleware } from '../store';
 import RequesterSuccess from '../model/RequesterSuccess';
 import buildSaga from '../features/sagas';
 import { ComicStore } from '../model/ComicStore/ComicStore';
-describe('SmartAppComponent', () => {
-  const InitialComponent = ({ comicStore }) => {
-    const dispatch = useDispatch();
 
+describe('SmartAppComponent', () => {
+  const InitialComponent = ({ comicStore }: { comicStore: ComicStore }) => {
     return <SmartAppComponent comicStore={comicStore} />
   }
 

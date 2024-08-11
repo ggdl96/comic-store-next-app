@@ -7,7 +7,8 @@ describe("ComicSliderItem", () => {
     const a = render(<ComicSliderItem />);
 
     const b = a.container.querySelector("div");
-    expect(b.className).toBe(
+
+    expect(b?.className).toBe(
       "flex-none bg-gray-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44"
     );
   });
@@ -16,7 +17,7 @@ describe("ComicSliderItem", () => {
     const a = render(<ComicSliderItem color="red" />);
 
     const b = a.container.querySelector("div");
-    expect(b.className).toBe(
+    expect(b?.className).toBe(
       "flex-none bg-red-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44"
     );
   });
@@ -25,7 +26,7 @@ describe("ComicSliderItem", () => {
     const a = render(<ComicSliderItem color="red" width="full" />);
 
     const b = a.container.querySelector("div");
-    expect(b.className).toBe(
+    expect(b?.className).toBe(
       "flex-none bg-red-500 w-full h-48 lg:h-96 md:h-72 sm:h-44"
     );
   });

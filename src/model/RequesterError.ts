@@ -16,7 +16,7 @@ export default class RequesterError extends Requester {
         });
     }
 
-    get(search): Promise<string[]> {
+    get(_search: string): Promise<string[]> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 reject({ error: 'error' });

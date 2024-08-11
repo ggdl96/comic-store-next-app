@@ -4,7 +4,7 @@ import { searchOptions, setOptions } from './slice';
 import { ComicStore } from '../model/ComicStore/ComicStore';
 
 function buildGenerator(comicStore: ComicStore) {
-  function* fetchOptions(action) {
+  function* fetchOptions(action: { type: string; payload: string }) {
     try {
       const options: string[] = yield call((payload) => comicStore.listByKeyword(payload), action.payload);
       yield put(setOptions(options));

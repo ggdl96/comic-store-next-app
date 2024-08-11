@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "check:types": "tsc --noemit",
+    "lint": "next lint && npm run check:types",
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
     "cypress": "cypress open",

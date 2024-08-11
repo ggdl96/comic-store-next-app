@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -6,16 +6,15 @@ import SearchComponent from "./Search";
 import ListComponent from "./List";
 import { ComicStore } from "../model/ComicStore/ComicStore";
 import { setList, searchOptions } from "../features/slice";
-import RequesterSuccess from "../model/RequesterSuccess";
 
 import { RootState } from "../store";
 interface SmartAppComponentProps {
   comicStore: ComicStore;
 }
 
-export default function SmartAppComponent({
+const SmartAppComponent = ({
   comicStore,
-}: SmartAppComponentProps) {
+}: SmartAppComponentProps) => {
   const comicsOptionList = useSelector(
     (state: RootState) => state.comics.options
   );
@@ -24,16 +23,16 @@ export default function SmartAppComponent({
   const [comicsCount, setComicsCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const getCount = async () => {
+  const getCount = useCallback(async () => {
     setLoading(true);
     const _count = await comicStore.count();
     setComicsCount(_count);
     setLoading(false);
-  };
+  }, [comicStore]);
 
   useEffect(() => {
     getCount();
-  }, []);
+  }, [getCount]);
 
   const handleClickOption = (option: string) => {
     const getListByKeyword = async () => {
@@ -68,3 +67,5 @@ export default function SmartAppComponent({
 SmartAppComponent.propTypes = {
   comicStore: PropTypes.instanceOf(ComicStore).isRequired,
 };
+
+export default SmartAppComponent;

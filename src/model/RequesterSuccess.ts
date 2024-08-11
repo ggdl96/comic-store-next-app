@@ -16,7 +16,7 @@ export default class RequesterSuccess extends Requester {
     });
   }
 
-  get(search): Promise<string[]> {
+  get(search: string): Promise<string[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(this.data.filter((item) => item.includes(search)));

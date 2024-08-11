@@ -1,36 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-export default function SearchComponent( { count, onSearch, options, onClickOption } ) {
+interface Props {
+  count: number;
+  onSearch: (value: string) => void;
+  options: string[];
+  onClickOption: (option: string) => void;
+}
+const SearchComponent = ({
+  count,
+  onSearch,
+  options = [],
+  onClickOption,
+}: Props) => {
   const isSingle = count === 1;
-  const text = `comic${ !isSingle ? 's': ''} ${ !isSingle ? 'are' : 'is'} available`;
+  const text = `comic${!isSingle ? "s" : ""} ${
+    !isSingle ? "are" : "is"
+  } available`;
 
-  const onChange = (e) => {
+  const onChange = (e: { target: { value: string } }) => {
     if (e.target.value.length >= 3) {
       onSearch(e.target.value);
     }
-  }
+  };
 
-  const optionsToRender = options
-    .slice(0, 5)
-    .map(option => (<span key={`option-${option}`} onClick={() => onClickOption(option)}>{option}</span>));
+  const optionsToRender = options.slice(0, 5).map((option: string) => (
+    <span key={`option-${option}`} onClick={() => onClickOption(option)}>
+      {option}
+    </span>
+  ));
 
   return (
     <div>
-      <input data-testid="input" placeholder='Search' onChange={onChange}/>
-      <span data-testid="comics-counter">{count} {text}</span>
-      {options.length ? <div className='list'>{optionsToRender}</div> : null}
+      <input data-testid="input" placeholder="Search" onChange={onChange} />
+      <span data-testid="comics-counter">
+        {count} {text}
+      </span>
+      {options.length ? <div className="list">{optionsToRender}</div> : null}
     </div>
   );
-}
-
-SearchComponent.propTypes = {
-  count: PropTypes.number.isRequired,
-  onSearch: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string),
-  onClickOption: PropTypes.func.isRequired,
-}
-
-SearchComponent.defaultProps = {
-  options: [],
 };
+
+export default SearchComponent;

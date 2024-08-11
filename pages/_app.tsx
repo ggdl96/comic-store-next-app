@@ -6,12 +6,13 @@ import { store, sagaMiddleware } from '../src/store';
 import buildSaga from '../src/features/sagas';
 import Requester from '../src/model/RequesterSuccess';
 import { ComicStore } from '../src/model/ComicStore/ComicStore';
+import { AppProps } from 'next/app';
 
 const requester = new Requester(['comic 1', 'comic 2']);
 
 const comicStore = new ComicStore(requester);
 sagaMiddleware.run(buildSaga(comicStore))
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Create WebSocket connection.
     const socket = new WebSocket('ws://localhost:9912');

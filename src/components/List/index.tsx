@@ -1,35 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-import ListItem from './components/ListItem';
+import ListItem from "./components/ListItem";
 
-function List({ items }) {
+interface Props {
+  items: string[];
+}
+
+const List = ({ items = [] }: Props) => {
   return (
     <ul data-testid="ul-list">
-      {
-        items.map(item => <ListItem key={`list-item-${item}`} item={item} />)
-      }
-  </ul>
-  )
-}
-
-function EmptyList() {
-  return <span>No results</span>
-}
-export default function ListComponent({ items }) {
-  return (
-    <div>
-      {
-        items.length ? <List items={items} /> : <EmptyList />
-      }
-    </div>
+      {items.map((item) => (
+        <ListItem key={`list-item-${item}`} item={item} />
+      ))}
+    </ul>
   );
-}
-
-ListComponent.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.string),
-}
-
-ListComponent.defaultProps = {
-  items: [],
 };
+
+const EmptyList = () => {
+  return <span>No results</span>;
+};
+ 
+const ListComponent = ({ items = [] }: Props) => {
+  return <div>{items.length ? <List items={items} /> : <EmptyList />}</div>;
+}
+
+export default ListComponent;
