@@ -7,7 +7,7 @@ interface Props {
 
 const defaultWidth = "w-36 sd:w-36 md:w-64 lg:w-96";
 
-const ComicSliderItem = ({ color, width }: Props) => {
+const ComicSliderItem = ({ color = "gray", width = "default" }: Props) => {
   return (
     <Link href="design-detail">
       <div
@@ -17,11 +17,6 @@ const ComicSliderItem = ({ color, width }: Props) => {
       ></div>
     </Link>
   );
-};
-
-ComicSliderItem.defaultProps = {
-  color: "gray",
-  width: "default",
 };
 
 export default ComicSliderItem;
