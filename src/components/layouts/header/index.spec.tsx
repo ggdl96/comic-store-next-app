@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Header from ".";
 
 describe("Header test", () => {
   test("should render properly", async () => {
-    render(<Header />);
+    const renderResult = render(<Header />);
 
-    const label = await screen.findAllByText("Menu");
+    const label = await renderResult.findAllByText("Menu");
 
     expect(label.length).toBe(1);
   });
