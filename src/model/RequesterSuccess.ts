@@ -1,7 +1,7 @@
 import Requester from "./Requester";
 
 export default class RequesterSuccess extends Requester {
-  private data: string[];
+  private readonly data: string[];
 
   constructor(data: string[]) {
     super();

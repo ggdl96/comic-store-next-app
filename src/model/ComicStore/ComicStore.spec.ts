@@ -1,41 +1,41 @@
-import { ComicStore } from './ComicStore';
-import RequesterSuccess from '../RequesterSuccess';
-import RequesterError from '../RequesterError';
+import { ComicStore } from "./ComicStore";
+import RequesterSuccess from "../RequesterSuccess";
+import RequesterError from "../RequesterError";
 
-describe('AppComponent', () => {
-  it('should allow create a ComicStore with empty comics', async () => {
+describe("AppComponent", () => {
+  it("should allow create a ComicStore with empty comics", async () => {
     const comicStore = createComicStore([]);
 
     expect(await comicStore.isEmpty()).toBeTruthy();
   });
 
-  it('should allow create a ComicStore with comics', async () => {
-    const comicStore = createComicStore(['Cartoon 1']);
+  it("should allow create a ComicStore with comics", async () => {
+    const comicStore = createComicStore(["Cartoon 1"]);
 
     expect(await comicStore.isEmpty()).toBeFalsy();
   });
 
-  it('should allow to search comics by keyword', async () => {
-    const resultsToExpect = ['first order', 'the first'];
-    const comicList = [...resultsToExpect, 'another one'];
+  it("should allow to search comics by keyword", async () => {
+    const resultsToExpect = ["first order", "the first"];
+    const comicList = [...resultsToExpect, "another one"];
     const comicStore = createComicStore(comicList);
 
-    const comics = await comicStore.listByKeyword('fir');
+    const comics = await comicStore.listByKeyword("fir");
 
     expect(comics).toEqual(resultsToExpect);
   });
 
-  it('should not allow to search when less than 3 letters', async () => {
-    const comicList = ['first order', 'the first', 'another one'];
+  it("should not allow to search when less than 3 letters", async () => {
+    const comicList = ["first order", "the first", "another one"];
     const comicStore = createComicStore(comicList);
 
-    const comics = await comicStore.listByKeyword('fi');
+    const comics = await comicStore.listByKeyword("fi");
 
     expect(comics).toEqual([]);
   });
 
-  it('should return amount of comics', async () => {
-    const comicList = ['first order', 'the first', 'another one'];
+  it("should return amount of comics", async () => {
+    const comicList = ["first order", "the first", "another one"];
     const comicStore = createComicStore(comicList);
 
     const comicsCount = await comicStore.count();
@@ -43,25 +43,17 @@ describe('AppComponent', () => {
     expect(comicsCount).toEqual(3);
   });
 
-  it('should throw exception if request is rejected', async () => {
-    const comicList = ['another one'];
+  it("should throw exception if request is rejected", async () => {
+    const comicList = ["another one"];
     const comicStore = createComicStoreThatFails(comicList);
-    try {
-      await comicStore.listByKeyword('fir');
-    } catch (error) {
-      expect(error).toEqual({ error: 'error' });
-    }
+
+    await expect(comicStore.listByKeyword("fir")).rejects.toThrow("error");
   });
 
-  it('should throw exception on count if request is rejected', async () => {
-    const comicList = ['first order', 'the first', 'another one'];
+  it("should throw exception on count if request is rejected", async () => {
+    const comicList = ["first order", "the first", "another one"];
     const comicStore = createComicStoreThatFails(comicList);
-
-    try {
-      await comicStore.count();
-    } catch (error) {
-      expect(error).toEqual({ error: 'error' });
-    }
+    await expect(comicStore.count()).rejects.toThrow("error");
   });
 });
 

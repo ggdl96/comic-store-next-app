@@ -1,7 +1,7 @@
 import Requester from "./Requester";
 
 export default class RequesterError extends Requester {
-    private data: string[];
+    private readonly data: string[];
 
     constructor(data: string[]) {
         super();
@@ -10,16 +10,17 @@ export default class RequesterError extends Requester {
 
     count(): Promise<number> {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                reject({ error: 'error' });
+            return reject(new Error('error'));
+            return setTimeout(() => {
+                return reject(new Error('error'));
             }, 300)
         });
     }
 
     get(_search: string): Promise<string[]> {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                reject({ error: 'error' });
+            return setTimeout(() => {
+                return reject(new Error('error'));
             }, 300)
         });
     }
