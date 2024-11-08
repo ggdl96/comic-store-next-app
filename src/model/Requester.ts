@@ -1,5 +1,5 @@
 export default abstract class Requester {
-    abstract count(): Promise<number>;
+  abstract count(): Promise<number>;
 
-    abstract get(search: string): Promise<string[]>;
+  abstract get(search: string): Promise<string[]>;
 }

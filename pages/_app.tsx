@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import React, { useEffect } from 'react';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 
 import { store, sagaMiddleware } from '../src/store';
 import buildSaga from '../src/features/sagas';
@@ -11,7 +11,7 @@ import { AppProps } from 'next/app';
 const requester = new Requester(['comic 1', 'comic 2']);
 
 const comicStore = new ComicStore(requester);
-sagaMiddleware.run(buildSaga(comicStore))
+sagaMiddleware.run(buildSaga(comicStore));
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Create WebSocket connection.
@@ -26,9 +26,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     socket.addEventListener('message', function (event) {
       console.log('Message from server ', event.data);
     });
-
-  }, [])
-  return <Provider store={store}><Component {...pageProps} /></Provider>
+  }, []);
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
-export default MyApp
+export default MyApp;

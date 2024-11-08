@@ -1,4 +1,4 @@
-import ComicSliderItem from "../comic-slider-item";
+import ComicSliderItem from '../comic-slider-item';
 
 const MainContent = () => {
   return (

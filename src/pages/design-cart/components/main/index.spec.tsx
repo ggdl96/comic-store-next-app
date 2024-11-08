@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import Main from ".";
+import { render, screen } from '@testing-library/react';
+import Main from '.';
 
-describe("Desgin Cart Main component test", () => {
-  test("should render properly", async () => {
+describe('Desgin Cart Main component test', () => {
+  test('should render properly', async () => {
     render(<Main />);
 
     const label = await screen.findAllByText(/total: /);

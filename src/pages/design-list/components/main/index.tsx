@@ -1,5 +1,5 @@
-import ComicSliderItem from "../../../../components/comic-slider-item";
-import MainDefault from "../../../../components/layouts/main-default";
+import ComicSliderItem from '../../../../components/comic-slider-item';
+import MainDefault from '../../../../components/layouts/main-default';
 
 function Main() {
   return (

@@ -1,4 +1,4 @@
-import Requester from "./Requester";
+import Requester from './Requester';
 
 export default class RequesterSuccess extends Requester {
   private readonly data: string[];
@@ -9,7 +9,7 @@ export default class RequesterSuccess extends Requester {
   }
 
   count(): Promise<number> {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.data.length);
       }, 300);
@@ -17,9 +17,9 @@ export default class RequesterSuccess extends Requester {
   }
 
   get(search: string): Promise<string[]> {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this.data.filter((item) => item.includes(search)));
+        resolve(this.data.filter(item => item.includes(search)));
       }, 300);
     });
   }

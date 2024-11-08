@@ -1,6 +1,6 @@
-import Footer from "../../src/components/layouts/footer";
-import Header from "../../src/components/layouts/header";
-import Main from "../../src/pages/design-cart/components/main";
+import Footer from '../../src/components/layouts/footer';
+import Header from '../../src/components/layouts/header';
+import Main from '../../src/pages/design-cart/components/main';
 
 function DesignCart() {
   return (

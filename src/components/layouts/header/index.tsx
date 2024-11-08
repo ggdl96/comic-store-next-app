@@ -1,12 +1,11 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 function Header() {
   return (
     <header className="bg-white">
       <nav
         className="mx-auto flex flex-row max-w-9xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
+        aria-label="Global">
         <div className="sm:hidden">
           <h3>Menu</h3>
         </div>
@@ -16,8 +15,8 @@ function Header() {
           </Link>
         </div>
         <div className="flex flex-row grow space-x-2 max-sm:hidden">
-        <Link href="/design-list">
-          <h2 className="text-xl">all</h2>
+          <Link href="/design-list">
+            <h2 className="text-xl">all</h2>
           </Link>
           <h2 className="text-xl">best sellers</h2>
         </div>

@@ -6,7 +6,10 @@ import { ComicStore } from '../model/ComicStore/ComicStore';
 function buildGenerator(comicStore: ComicStore) {
   function* fetchOptions(action: { type: string; payload: string }) {
     try {
-      const options: string[] = yield call((payload) => comicStore.listByKeyword(payload), action.payload);
+      const options: string[] = yield call(
+        payload => comicStore.listByKeyword(payload),
+        action.payload,
+      );
       yield put(setOptions(options));
     } catch (e) {
       console.error('here! catch. fetchOptions:', e);
@@ -16,7 +19,6 @@ function buildGenerator(comicStore: ComicStore) {
 
   return fetchOptions;
 }
-
 
 function buildSaga(comicStore: ComicStore) {
   function* mySaga() {

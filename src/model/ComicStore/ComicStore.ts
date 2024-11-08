@@ -1,25 +1,25 @@
-import Requester from "../Requester";
+import Requester from '../Requester';
 
 export class ComicStore {
-    private requester: Requester;
+  private requester: Requester;
 
-    constructor(requester: Requester) {
-        this.requester = requester;
+  constructor(requester: Requester) {
+    this.requester = requester;
+  }
+
+  async isEmpty(): Promise<boolean> {
+    return (await this.count()) === 0;
+  }
+
+  count(): Promise<number> {
+    return this.requester.count();
+  }
+
+  listByKeyword(keyword: string): Promise<string[]> {
+    if (keyword.length < 3) {
+      return new Promise(resolve => resolve([]));
     }
 
-    async isEmpty(): Promise<boolean> {
-        return await this.count() === 0;
-    }
-
-    count(): Promise<number> {
-        return this.requester.count();
-    }
-
-    listByKeyword(keyword: string): Promise<string[]> {
-        if (keyword.length < 3) {
-            return new Promise(resolve => resolve([]));
-        }
-
-        return this.requester.get(keyword);
-    }
+    return this.requester.get(keyword);
+  }
 }

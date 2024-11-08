@@ -8,6 +8,7 @@
     "start": "next start",
     "check:types": "tsc --noemit",
     "lint": "next lint && npm run check:types",
+    "lint:fix": "next lint --fix",
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
     "cypress": "cypress open",
@@ -34,9 +35,12 @@
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.17",
     "cypress": "^10.11.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "jest": "^29.2.2",
     "jest-environment-jsdom": "^29.2.2",
     "postcss": "^8.4.33",
+    "prettier": "3.3.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^4.8.4"
   }

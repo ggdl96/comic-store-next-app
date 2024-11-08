@@ -1,5 +1,5 @@
-import Button from "../button";
-import MainDefault from "../layouts/main-default";
+import Button from '../button';
+import MainDefault from '../layouts/main-default';
 
 function DetailContent() {
   return (

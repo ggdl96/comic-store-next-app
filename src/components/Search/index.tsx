@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface Props {
   count: number;
@@ -6,16 +6,9 @@ interface Props {
   options: string[];
   onClickOption: (option: string) => void;
 }
-const SearchComponent = ({
-  count,
-  onSearch,
-  options = [],
-  onClickOption,
-}: Props) => {
+const SearchComponent = ({ count, onSearch, options = [], onClickOption }: Props) => {
   const isSingle = count === 1;
-  const text = `comic${!isSingle ? "s" : ""} ${
-    !isSingle ? "are" : "is"
-  } available`;
+  const text = `comic${!isSingle ? 's' : ''} ${!isSingle ? 'are' : 'is'} available`;
 
   const onChange = (e: { target: { value: string } }) => {
     if (e.target.value.length >= 3) {

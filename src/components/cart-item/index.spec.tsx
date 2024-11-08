@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import CartItem from ".";
+import { render, screen } from '@testing-library/react';
+import CartItem from '.';
 
-describe("CartItem test", () => {
-  test("should render properly", async () => {
+describe('CartItem test', () => {
+  test('should render properly', async () => {
     render(<CartItem />);
 
     const label = await screen.findAllByText(/price:/);

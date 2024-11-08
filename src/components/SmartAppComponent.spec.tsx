@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import { Provider } from 'react-redux'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event';
 
 import SmartAppComponent from './SmartAppComponent';
 import { store, sagaMiddleware } from '../store';
@@ -11,17 +11,20 @@ import { ComicStore } from '../model/ComicStore/ComicStore';
 
 describe('SmartAppComponent', () => {
   const InitialComponent = ({ comicStore }: { comicStore: ComicStore }) => {
-    return <SmartAppComponent comicStore={comicStore} />
-  }
+    return <SmartAppComponent comicStore={comicStore} />;
+  };
 
   it('given a provider with a comic on the list, counter should be 1', async () => {
     const requester = new RequesterSuccess(['comic 1']);
     const comicStore = new ComicStore(requester);
 
-    sagaMiddleware.run(buildSaga(comicStore))
+    sagaMiddleware.run(buildSaga(comicStore));
 
-
-    render(<Provider store={store}><InitialComponent comicStore={comicStore}  /></Provider>);
+    render(
+      <Provider store={store}>
+        <InitialComponent comicStore={comicStore} />
+      </Provider>,
+    );
 
     const counterElement = await screen.findByTestId('comics-counter');
     expect(counterElement).toHaveTextContent('1 comic is available');
@@ -31,11 +34,15 @@ describe('SmartAppComponent', () => {
     const requester = new RequesterSuccess(['comic 1', 'comic 2']);
     const comicStore = new ComicStore(requester);
 
-    sagaMiddleware.run(buildSaga(comicStore))
+    sagaMiddleware.run(buildSaga(comicStore));
 
     const user = userEvent.setup();
 
-    render(<Provider store={store}><InitialComponent comicStore={comicStore} /></Provider>);
+    render(
+      <Provider store={store}>
+        <InitialComponent comicStore={comicStore} />
+      </Provider>,
+    );
 
     const _input = await screen.findByTestId('input');
     // input 3 letters
