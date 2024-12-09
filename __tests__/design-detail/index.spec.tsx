@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import React from "react";
-import Detail from "../../pages/design-detail";
+import { render, screen } from '@testing-library/react';
+import React from 'react';
+import Detail from '../../pages/design-detail/[index]';
 
-describe("Desgin Detail component test", () => {
-  test("should render properly", async () => {
+describe('Desgin Detail component test', () => {
+  test('should render properly', async () => {
     render(<Detail />);
 
     const label = await screen.findAllByText(/Buy now/);

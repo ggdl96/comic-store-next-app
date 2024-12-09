@@ -9,7 +9,7 @@ const defaultWidth = 'w-36 sd:w-36 md:w-64 lg:w-96';
 
 const ComicSliderItem = ({ color = 'gray', width = 'default' }: Props) => {
   return (
-    <Link href="design-detail">
+    <Link href="/design-detail/1234abc">
       <div
         className={`flex-none bg-${color}-500 ${
           width === 'default' ? defaultWidth : 'w-full'
