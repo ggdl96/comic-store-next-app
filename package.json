@@ -9,7 +9,8 @@
     "check:types": "tsc --noemit",
     "lint": "next lint && npm run check:types",
     "lint:fix": "next lint --fix",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:all": "jest --watch",
     "test:coverage": "jest --coverage",
     "cypress": "cypress open",
     "cypress:headless": "cypress run"
