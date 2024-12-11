@@ -5,7 +5,13 @@ interface Props {
 }
 
 function MainDefault({ children }: Props) {
-  return <main className="px-2 sm:px-4 md:px-6 lg:px-8">{children}</main>;
+  return (
+    <div className="grid grid-cols-12 gap-2">
+      <div className="lg:col-span-2"></div>
+      <div className="col-span-12 lg:col-span-8 pl-8 pr-8 lg:pl-4 lg:pr-4">{children}</div>
+      <div className="lg:col-span-2"></div>
+    </div>
+  );
 }
 
 export default MainDefault;

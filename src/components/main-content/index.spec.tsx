@@ -1,9 +1,9 @@
-import OrderSummaryItem from './';
-import { render, screen } from '@testing-library/react';
+import MainContent from './';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-describe('OrderSummaryItem', () => {
+describe('MainContent', () => {
   it('should render properly', async () => {
-    render(<OrderSummaryItem />);
+    render(<MainContent />);
   });
 });
