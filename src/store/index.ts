@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
+import aboutInfo from '../features/aboutInfo';
 
 import comicsReducer from '../features/slice';
 
@@ -8,6 +9,7 @@ export const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: {
     comics: comicsReducer,
+    aboutInfo: aboutInfo,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(sagaMiddleware),
 });

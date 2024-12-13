@@ -3,7 +3,7 @@ import MainDefault from '../main-default';
 
 function Header() {
   return (
-    <header className="bg-white">
+    <header className="bg-white fixed w-full">
       <MainDefault>
         <nav
           className="flex flex-row items-center justify-between py-6 lg:py-8 col-span-8"
