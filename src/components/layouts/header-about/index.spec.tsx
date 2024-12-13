@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import HeaderAbout from '.';
 
-describe('HeaderCheckout test', () => {
+describe('HeaderAbout test', () => {
   test('should render properly', async () => {
     render(<HeaderAbout />);
 
-    const label = await screen.findAllByText('Checkout');
+    const label = await screen.findAllByText('About');
 
     expect(label.length).toBe(1);
   });

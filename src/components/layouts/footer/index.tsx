@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { MouseEventHandler } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleDisplay } from '../../../features/aboutInfo';
@@ -6,7 +7,7 @@ import MainDefault from '../main-default';
 
 const Footer = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const handleOnClick: MouseEventHandler<HTMLButtonElement> = () => {
+  const handleOnClickContact: MouseEventHandler<HTMLButtonElement> = () => {
     dispatch(toggleDisplay());
   };
 
@@ -24,9 +25,12 @@ const Footer = () => {
             <h3>policy</h3>
           </section>
           <section className="flex">
-            <button onClick={handleOnClick}>
-              <h3>About</h3>
+            <button onClick={handleOnClickContact}>
+              <h3>Contact</h3>
             </button>
+          </section>
+          <section className="flex">
+            <Link href={'/design-about'}>About</Link>
           </section>
         </div>
       </MainDefault>
