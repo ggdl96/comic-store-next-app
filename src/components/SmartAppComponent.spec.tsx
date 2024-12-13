@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 
 import SmartAppComponent from './SmartAppComponent';
-import { store, sagaMiddleware } from '../store';
+import { sagaMiddleware } from '../store';
 import RequesterSuccess from '../model/RequesterSuccess';
 import buildSaga from '../features/sagas';
 import { ComicStore } from '../model/ComicStore/ComicStore';
+import AppProvidersTest from '../utils/test/app-providers-test';
 
 describe('SmartAppComponent', () => {
   const InitialComponent = ({ comicStore }: { comicStore: ComicStore }) => {
@@ -21,9 +21,9 @@ describe('SmartAppComponent', () => {
     sagaMiddleware.run(buildSaga(comicStore));
 
     render(
-      <Provider store={store}>
+      <AppProvidersTest>
         <InitialComponent comicStore={comicStore} />
-      </Provider>,
+      </AppProvidersTest>,
     );
 
     const counterElement = await screen.findByTestId('comics-counter');
@@ -39,9 +39,9 @@ describe('SmartAppComponent', () => {
     const user = userEvent.setup();
 
     render(
-      <Provider store={store}>
+      <AppProvidersTest>
         <InitialComponent comicStore={comicStore} />
-      </Provider>,
+      </AppProvidersTest>,
     );
 
     const _input = await screen.findByTestId('input');
