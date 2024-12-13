@@ -16,6 +16,10 @@
     "cypress:headless": "cypress run"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.2.0",
+    "@mui/material": "^6.2.0",
     "@reduxjs/toolkit": "^1.9.0",
     "eslint-config-next": "^14.2.5",
     "next": "^14.2.5",
