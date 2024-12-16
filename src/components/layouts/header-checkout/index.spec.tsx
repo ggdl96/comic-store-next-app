@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import HeaderAbout from '.';
+import HeaderCheckout from '.';
 
 describe('HeaderCheckout test', () => {
   test('should render properly', async () => {
-    render(<HeaderAbout />);
+    render(<HeaderCheckout />);
 
     const label = await screen.findAllByText('Checkout');
 
