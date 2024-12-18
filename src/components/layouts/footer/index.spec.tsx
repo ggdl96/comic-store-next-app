@@ -14,8 +14,16 @@ describe('Footer test', () => {
       </Provider>,
     );
 
-    const label = await screen.findAllByText('all');
+    const labelAll = await screen.findAllByText('All');
+    const labelContact = await screen.findAllByText('Contact');
+    const labelAbout = await screen.findAllByText('About');
+    const labelBrands = await screen.findAllByText('brands');
+    const labelPolicy = await screen.findAllByText('policy');
 
-    expect(label.length).toBe(1);
+    expect(labelAll.length).toBe(1);
+    expect(labelContact.length).toBe(1);
+    expect(labelAbout.length).toBe(1);
+    expect(labelBrands.length).toBe(1);
+    expect(labelPolicy.length).toBe(1);
   });
 });

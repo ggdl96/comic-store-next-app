@@ -16,7 +16,7 @@ const Footer = () => {
       <MainDefault>
         <div className="flex flex-row justify-between">
           <section className="flex">
-            <h3>all</h3>
+            <Link href={'/design-list'}>All</Link>
           </section>
           <section className="flex">
             <h3>brands</h3>
