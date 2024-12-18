@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import MainDefault from '../main-default';
 
-function HeaderAbout() {
+function HeaderSimple({ title = '' }: { title?: string }) {
   return (
     <header className="bg-white">
       <MainDefault>
@@ -13,7 +13,7 @@ function HeaderAbout() {
           </div>
           <div className="flex flex-row justify-center grow">
             <Link href="/design">
-              <h1>About</h1>
+              <h1>{title}</h1>
             </Link>
           </div>
         </nav>
@@ -22,4 +22,4 @@ function HeaderAbout() {
   );
 }
 
-export default HeaderAbout;
+export default HeaderSimple;

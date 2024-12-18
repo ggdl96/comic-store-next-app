@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import HeaderAbout from '.';
+import HeaderSimple from '.';
 
 describe('HeaderAbout test', () => {
   test('should render properly', async () => {
-    render(<HeaderAbout />);
+    render(<HeaderSimple title="About" />);
 
     const label = await screen.findAllByText('About');
 

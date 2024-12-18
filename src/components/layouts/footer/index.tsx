@@ -22,7 +22,7 @@ const Footer = () => {
             <h3>brands</h3>
           </section>
           <section className="flex">
-            <h3>policy</h3>
+            <Link href={'/design-policy'}>Policy</Link>
           </section>
           <section className="flex">
             <button onClick={handleOnClickContact}>
