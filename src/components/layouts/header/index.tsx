@@ -20,7 +20,9 @@ function Header() {
             <Link href="/design-list">
               <h2 className="text-xl">all</h2>
             </Link>
-            <h2 className="text-xl">best sellers</h2>
+            <Link href="/design-bestsellers">
+              <h2 className="text-xl">best sellers</h2>
+            </Link>
           </div>
           <div className="sm:hidden">
             <h3>Search M</h3>
