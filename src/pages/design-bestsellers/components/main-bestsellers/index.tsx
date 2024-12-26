@@ -3,7 +3,7 @@ import MainDefault from '../../../../components/layouts/main-default';
 
 function MainBestsellers() {
   return (
-    <MainDefault>
+    <MainDefault emptyBackgroundColorClass="bg-empty">
       <section>
         <h1>Bestsellers</h1>
         <div className="flex flex-col w-full items-center">

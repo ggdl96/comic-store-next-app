@@ -6,7 +6,7 @@ import MainDefault from '.';
 describe('MainDefault test', () => {
   test('should render properly', async () => {
     render(
-      <MainDefault>
+      <MainDefault emptyBackgroundColorClass="bg-empty">
         <p>test</p>
       </MainDefault>,
     );

@@ -3,7 +3,7 @@ import MainDefault from '../layouts/main-default';
 
 function DetailContent() {
   return (
-    <MainDefault>
+    <MainDefault emptyBackgroundColorClass="bg-empty">
       <div className="grid grid-rows-2 w-full sm:grid-rows-none sm:grid-cols-2">
         <section className="bg-orange-300 h-96">
           <div></div>

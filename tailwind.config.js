@@ -12,6 +12,22 @@ module.exports = {
     extend: {
       colors: {
         link: '#3333e9',
+        primary: {
+          500: '#2CBCAE',
+          1000: '#3FFFEC',
+        },
+        secondary: {
+          500: '#BC7411',
+          1000: '#ff9f1c',
+        },
+        error: '#DA3846',
+        warning: '#DA893E',
+        info: '#67A0DA',
+        'font-main': {
+          default: '#000',
+          dark: '#fff',
+        },
+        empty: '#C4B7B7',
       },
     },
   },

@@ -4,7 +4,7 @@ import MainContentLayout from '../layouts/main-default';
 
 const MainContent = () => {
   return (
-    <MainContentLayout>
+    <MainContentLayout emptyBackgroundColorClass="bg-empty">
       <main>
         <div className="flex flex-row h-32 sm:h-96 space-x-2">
           <Link className="bg-yellow-500 w-6/12 h-full" href="/design-highlights/a1234">

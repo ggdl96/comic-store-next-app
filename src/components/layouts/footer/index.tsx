@@ -12,11 +12,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full space-x-2 bg-blue-400 py-6">
+    <footer className="w-full space-x-2 bg-secondary-1000 py-6">
       <MainDefault>
         <div className="flex flex-row justify-between">
           <section className="flex">
-            <Link href={'/design-list'}>All</Link>
+            <Link href={'/design-list'} className="text-font-main-default dark:text-font-main-dark">
+              All
+            </Link>
           </section>
           <section className="flex">
             <h3>brands</h3>

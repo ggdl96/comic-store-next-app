@@ -10,7 +10,7 @@ function Design() {
       <div className="w-full h-screen flex flex-col overflow-scroll">
         <ModalInfo />
         <div className="flex flex-1">
-          <MainDefault>
+          <MainDefault emptyBackgroundColorClass="bg-empty">
             <div>
               <h2 className="text-xl">Comic Store is a website</h2>
               <br></br>
