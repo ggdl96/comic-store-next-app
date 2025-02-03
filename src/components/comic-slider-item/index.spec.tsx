@@ -9,7 +9,7 @@ describe('ComicSliderItem', () => {
     const b = a.container.querySelector('div');
 
     expect(b?.className).toBe(
-      'flex-none bg-gray-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44',
+      'flex bg-gray-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
     );
   });
 
@@ -18,7 +18,7 @@ describe('ComicSliderItem', () => {
 
     const b = a.container.querySelector('div');
     expect(b?.className).toBe(
-      'flex-none bg-red-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44',
+      'flex bg-red-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
     );
   });
 
@@ -26,6 +26,8 @@ describe('ComicSliderItem', () => {
     const a = render(<ComicSliderItem color="red" width="full" />);
 
     const b = a.container.querySelector('div');
-    expect(b?.className).toBe('flex-none bg-red-500 w-full h-48 lg:h-96 md:h-72 sm:h-44');
+    expect(b?.className).toBe(
+      'flex bg-red-500 w-full h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
+    );
   });
 });
