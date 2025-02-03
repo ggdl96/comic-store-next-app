@@ -5,16 +5,15 @@ import PropTypes from 'prop-types';
 import SearchComponent from './Search';
 import ListComponent from './List';
 import { ComicStore } from '../model/ComicStore/ComicStore';
-import { setList, searchOptions } from '../features/slice';
+import { setList, searchOptions, selectList, selectOptions } from '../features/slice';
 
-import { RootState } from '../store';
 interface SmartAppComponentProps {
   comicStore: ComicStore;
 }
 
 const SmartAppComponent = ({ comicStore }: SmartAppComponentProps) => {
-  const comicsOptionList = useSelector((state: RootState) => state.comics.options);
-  const comicsList = useSelector((state: RootState) => state.comics.list);
+  const comicsOptionList = useSelector(selectOptions);
+  const comicsList = useSelector(selectList);
   const dispatch = useDispatch();
   const [comicsCount, setComicsCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
