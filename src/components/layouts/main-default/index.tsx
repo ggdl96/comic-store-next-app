@@ -11,16 +11,15 @@ function MainDefault({
   emptyBackgroundColorClass = '',
   mainBackgroundColorClass = '',
 }: Readonly<Props>) {
-  const emptySpaceClasses = `row-start-1 col-span-0 lg:col-span-2 ${emptyBackgroundColorClass}`;
+  const leftMarginClasses = `main-default__left-margin lg:row-start-1 col-span-0 lg:col-span-2 ${emptyBackgroundColorClass}`;
+  const contentClasses = `main-default__content row-start-1 col-span-12 lg:col-span-8 px-2 sm:px-3 md:px-4 ${mainBackgroundColorClass}`;
+  const rightMarginClasses = `main-default__right-margin lg:row-start-1 col-span-0 lg:col-span-2 ${emptyBackgroundColorClass}`;
 
   return (
-    <div className="grid grid-cols-12 grid-rows-1 gap-2 w-full">
-      <div className={emptySpaceClasses}></div>
-      <div
-        className={`row-start-1 col-span-12 lg:col-span-8 pl-8 pr-8 lg:pl-4 lg:pr-4 ${mainBackgroundColorClass}`}>
-        {children}
-      </div>
-      <div className={emptySpaceClasses}></div>
+    <div className="main-default__container grid grid-cols-12 grid-rows-1 gap-2 w-full">
+      <div className={leftMarginClasses}></div>
+      <div className={contentClasses}>{children}</div>
+      <div className={rightMarginClasses}></div>
     </div>
   );
 }
