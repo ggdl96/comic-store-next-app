@@ -1,33 +1,65 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ComicSliderItem from '.';
 
 describe('ComicSliderItem', () => {
-  it('given no color prop provided, it should render default background gray', async () => {
-    const a = render(<ComicSliderItem />);
-
-    const b = a.container.querySelector('div');
-
-    expect(b?.className).toBe(
-      'flex bg-gray-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
+  it('given 0 rating, it should not display stars', async () => {
+    const { container } = render(
+      <ComicSliderItem
+        item={{
+          image: '',
+          title: 'title',
+          author: 'author',
+          price: {
+            value: 112,
+            currency: 'USD',
+          },
+          category: 'category',
+          rating: 0,
+        }}
+      />,
     );
+
+    const titleElement = screen.getByText('title');
+    const authorElement = screen.getByText('author');
+    const priceElement = screen.getByText('USD 112');
+    const categoryElement = screen.getByText('category');
+
+    expect(titleElement).toBeInTheDocument();
+    expect(authorElement).toBeInTheDocument();
+    expect(priceElement).toBeInTheDocument();
+    expect(categoryElement).toBeInTheDocument();
+    expect(container.querySelector('.star-icon-solid')).not.toBeInTheDocument();
+    expect(container.querySelector('.star-icon-outline')).not.toBeInTheDocument();
   });
 
-  it('given color prop provided with a value of "red", it should render background red', async () => {
-    const a = render(<ComicSliderItem color="red" />);
-
-    const b = a.container.querySelector('div');
-    expect(b?.className).toBe(
-      'flex bg-red-500 w-36 sd:w-36 md:w-64 lg:w-96 h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
+  it('given 1 rating, it should display  1 solid star and 4 outline stars', async () => {
+    const { container } = render(
+      <ComicSliderItem
+        item={{
+          image: '',
+          title: 'title',
+          author: 'author',
+          price: {
+            value: 112,
+            currency: 'USD',
+          },
+          category: 'category',
+          rating: 1,
+        }}
+      />,
     );
-  });
 
-  it('given width prop provided with a value of "full", it should render it full width', async () => {
-    const a = render(<ComicSliderItem color="red" width="full" />);
+    const titleElement = screen.getByText('title');
+    const authorElement = screen.getByText('author');
+    const priceElement = screen.getByText('USD 112');
+    const categoryElement = screen.getByText('category');
 
-    const b = a.container.querySelector('div');
-    expect(b?.className).toBe(
-      'flex bg-red-500 w-full h-48 lg:h-96 md:h-72 sm:h-44 border-primary-1000 border-2 p-2',
-    );
+    expect(titleElement).toBeInTheDocument();
+    expect(authorElement).toBeInTheDocument();
+    expect(priceElement).toBeInTheDocument();
+    expect(categoryElement).toBeInTheDocument();
+    expect(container.querySelectorAll('.star-icon-solid')).toHaveLength(1);
+    expect(container.querySelectorAll('.star-icon-outline')).toHaveLength(4);
   });
 });

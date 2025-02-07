@@ -16,25 +16,25 @@ const MainContent = () => {
         </div>
         <div className="overflow-x-auto overscroll-auto py-4">
           <div className="flex flex-row h-full space-x-2 grow">
-            <ComicSliderItem color="yellow" />
-            <ComicSliderItem color="blue" />
-            <ComicSliderItem color="red" />
-            <ComicSliderItem color="yellow" />
-            <ComicSliderItem color="blue" />
-            <ComicSliderItem color="red" />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
           </div>
         </div>
         <div className="overflow-x-auto overscroll-auto py-4">
           <div className="flex flex-row h-full space-x-2 grow">
-            <ComicSliderItem color="green" />
-            <ComicSliderItem color="gray" />
-            <ComicSliderItem color="green" />
-            <ComicSliderItem color="green" />
-            <ComicSliderItem color="gray" />
-            <ComicSliderItem color="green" />
-            <ComicSliderItem color="green" />
-            <ComicSliderItem color="gray" />
-            <ComicSliderItem color="green" />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
+            <ComicSliderItem />
           </div>
         </div>
       </main>
