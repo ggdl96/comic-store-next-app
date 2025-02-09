@@ -22,13 +22,15 @@ describe('ComicSliderItem', () => {
 
     const titleElement = screen.getByText('title');
     const authorElement = screen.getByText('author');
-    const priceElement = screen.getByText('USD 112');
-    const categoryElement = screen.getByText('category');
+    const priceCurrencyElement = screen.getByText('(USD)');
+    const priceElement = screen.getByText('112');
+    const categoryElements = screen.getAllByText('category');
 
     expect(titleElement).toBeInTheDocument();
     expect(authorElement).toBeInTheDocument();
+    expect(priceCurrencyElement).toBeInTheDocument();
     expect(priceElement).toBeInTheDocument();
-    expect(categoryElement).toBeInTheDocument();
+    expect(categoryElements).toHaveLength(2);
     expect(container.querySelector('.star-icon-solid')).not.toBeInTheDocument();
     expect(container.querySelector('.star-icon-outline')).not.toBeInTheDocument();
   });
@@ -52,14 +54,25 @@ describe('ComicSliderItem', () => {
 
     const titleElement = screen.getByText('title');
     const authorElement = screen.getByText('author');
-    const priceElement = screen.getByText('USD 112');
-    const categoryElement = screen.getByText('category');
+    const priceCurrencyElement = screen.getByText('(USD)');
+    const priceElement = screen.getByText('112');
+    const categoryElements = screen.getAllByText('category');
 
     expect(titleElement).toBeInTheDocument();
     expect(authorElement).toBeInTheDocument();
+    expect(priceCurrencyElement).toBeInTheDocument();
     expect(priceElement).toBeInTheDocument();
-    expect(categoryElement).toBeInTheDocument();
-    expect(container.querySelectorAll('.star-icon-solid')).toHaveLength(1);
-    expect(container.querySelectorAll('.star-icon-outline')).toHaveLength(4);
+    expect(categoryElements).toHaveLength(2);
+    expect(container.querySelectorAll('.rating-container-desktop .star-icon-solid')).toHaveLength(
+      1,
+    );
+    expect(container.querySelectorAll('.rating-container-desktop .star-icon-outline')).toHaveLength(
+      4,
+    );
+
+    expect(container.querySelectorAll('.rating-container-mobile .star-icon-solid')).toHaveLength(1);
+    expect(container.querySelectorAll('.rating-container-mobile .star-icon-outline')).toHaveLength(
+      4,
+    );
   });
 });
