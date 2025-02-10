@@ -7,6 +7,7 @@ import buildSaga from '../src/features/sagas';
 import Requester from '../src/model/RequesterSuccess';
 import { ComicStore } from '../src/model/ComicStore/ComicStore';
 import { AppProps } from 'next/app';
+import Layout from '../src/components/layouts/root';
 
 const requester = new Requester(['comic 1', 'comic 2']);
 
@@ -28,9 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <Layout>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </Layout>
   );
 }
 
