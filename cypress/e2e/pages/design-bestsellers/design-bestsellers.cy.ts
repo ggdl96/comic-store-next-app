@@ -1,13 +1,18 @@
-const url = 'design-bestsellers';
+import { Header } from '../../../support/helpers/Header';
+
+const header = new Header();
+
+const url = '/design-bestsellers';
 
 describe(`go to ${url} renders correctly`, () => {
-  it("contains a comics title and Bestsellers", () => {
-    cy.visit(`http://localhost:3000/${url}`);
-    cy.contains('comics');
+  it('displays the Comic Store logo and Bestsellers title', () => {
+    cy.visit(`http://localhost:3000${url}`);
+    header.verifyLogo();
+
     cy.contains('Bestsellers');
   });
 
-  it("contains sections", () => {
+  it('contains sections', () => {
     cy.visit(`http://localhost:3000/${url}`);
     cy.contains('All Time');
     cy.contains('Past Year');

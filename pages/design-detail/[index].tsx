@@ -1,14 +1,11 @@
 import DetailContent from '../../src/components/detail-content';
-import Footer from '../../src/components/layouts/footer';
-import Header from '../../src/components/layouts/header';
+import LayoutDefault from '../../src/components/layouts/layout-default';
 
 function DesignDetail() {
   return (
-    <>
-      <Header />
+    <LayoutDefault>
       <DetailContent />
-      <Footer />
-    </>
+    </LayoutDefault>
   );
 }
 

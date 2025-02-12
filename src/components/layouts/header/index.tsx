@@ -1,19 +1,27 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import MainDefault from '../main-default';
-
+import { headerHeightClass, zIndexHeaderClass } from '../../../styles/layout';
 function Header() {
   return (
-    <header className="bg-white fixed w-full">
+    <header
+      className={`header-top bg-white fixed w-full ${headerHeightClass}  ${zIndexHeaderClass} top-0 left-0 right-0`}>
       <MainDefault>
         <nav
-          className="flex flex-row items-center justify-between py-6 lg:py-8 col-span-8"
+          className="flex flex-row items-center justify-between py-6 lg:py-8 col-span-8 relative"
           aria-label="Global">
           <div className="sm:hidden">
             <h3>Menu</h3>
           </div>
           <div className="flex flex-row justify-between grow-0">
             <Link href="/design">
-              <h1>comics</h1>
+              <Image
+                id="headerComicStoreLogo"
+                src={require('../../../assets/svg/logo-image-header.svg')}
+                alt={'Comic Store Logo'}
+                width={70}
+                height={70}
+              />
             </Link>
           </div>
           <div className="flex flex-row grow space-x-2 max-sm:hidden">

@@ -1,8 +1,12 @@
-const url = 'design-list';
+import { Header } from '../../../support/helpers/Header';
 
-describe(`go to ${url} renders correctly`, () => {
-  it("contains a comics title", () => {
-    cy.visit(`http://localhost:3000/${url}`);
-    cy.contains('comics');
+const header = new Header();
+
+const url = '/design-list';
+
+describe(`Navigating to ${url} renders correctly`, () => {
+  it('displays the Comic Store logo', () => {
+    cy.visit(`http://localhost:3000${url}`);
+    header.verifyLogo();
   });
 });

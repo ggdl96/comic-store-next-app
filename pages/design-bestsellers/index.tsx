@@ -1,14 +1,11 @@
-import Footer from '../../src/components/layouts/footer';
-import Header from '../../src/components/layouts/header';
+import LayoutDefault from '../../src/components/layouts/layout-default';
 import MainBestsellers from '../../src/pages/design-bestsellers/components/main-bestsellers';
 
 function DesginBestsellers() {
   return (
-    <>
-      <Header />
+    <LayoutDefault>
       <MainBestsellers />
-      <Footer />
-    </>
+    </LayoutDefault>
   );
 }
 

@@ -69,7 +69,10 @@ const ComicSliderItem = ({
         <div className="rating-container-mobile sm:hidden flex flex-row justify-end w-full absolute bottom-2">
           <ComicRating rating={item.rating} />
         </div>
-        <button id={wrapperImageId} className="w-full h-full flex z-8" onClick={handleOnPress}>
+        <button
+          id={wrapperImageId}
+          className="w-full h-full flex flex-col z-8"
+          onClick={handleOnPress}>
           <Image src={item.image} alt={item.title} className="object-contain max-h-full" />
         </button>
       </div>

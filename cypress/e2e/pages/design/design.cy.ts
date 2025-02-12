@@ -1,8 +1,11 @@
+import { Header } from '../../../support/helpers/Header';
+
+const header = new Header();
 const url = '/design';
 
-describe(`go to ${url} renders correctly`, () => {
-  it("contains the comics title", () => {
+describe(`Navigating to ${url} renders correctly`, () => {
+  it('displays the Comic Store logo', () => {
     cy.visit(`http://localhost:3000${url}`);
-    cy.contains('comics');
+    header.verifyLogo();
   });
 });

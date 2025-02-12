@@ -2,6 +2,7 @@ import Footer from '../../src/components/layouts/footer';
 import HeaderSimple from '../../src/components/layouts/header-simple';
 import MainDefault from '../../src/components/layouts/main-default';
 import ModalInfo from '../../src/components/modal-info';
+import { mainContentPaddingTopClass } from '../../src/styles/layout';
 
 function Design() {
   return (

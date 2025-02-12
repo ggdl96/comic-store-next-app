@@ -1,14 +1,11 @@
-import Footer from '../../src/components/layouts/footer';
-import Header from '../../src/components/layouts/header';
+import LayoutDefault from '../../src/components/layouts/layout-default';
 import Main from '../../src/pages/design-list/components/main';
 
 function DesginList() {
   return (
-    <>
-      <Header />
+    <LayoutDefault>
       <Main />
-      <Footer />
-    </>
+    </LayoutDefault>
   );
 }
 

@@ -1,9 +1,13 @@
+import { Header } from '../../../support/helpers/Header';
+
+const header = new Header();
+
 const url = '/design-about';
 
 describe(`go to ${url} renders correctly`, () => {
-  it('contains the comics title', () => {
+  it('contains the comics title and tech stack', () => {
     cy.visit(`http://localhost:3000${url}`);
-    cy.contains('comics');
+    header.verifyLogo();
     cy.contains('Comic Store is a website build with NextJS');
     cy.contains('Techs');
     cy.contains('NextJS');
