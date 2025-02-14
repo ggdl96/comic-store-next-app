@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 interface Props {
   // TODO: This should be required, currently it's optional
   item?: {
+    id: string;
     image: string;
     title: string;
     author: string;
@@ -25,7 +26,8 @@ interface Props {
 
 const ComicSliderItem = ({
   item = {
-    image: require('./test.png'),
+    id: 'xcfgdf34g7hklk',
+    image: '/comic-cyberpunk-1.png',
     title: 'Title of the Comic',
     author: 'Some good Author',
     price: {
@@ -56,9 +58,9 @@ const ComicSliderItem = ({
       <div className="text-right grow-0">
         <p className="text-xs sm:hidden">{item.category}</p>
       </div>
-      <div className="w-full sm:w-1/2 sm:h-full relative grow-1">
-        <div className="absolute h-8 w-8 rounded-full bg-white flex items-center justify-center top-2 right-2">
-          <button onClick={toggleFavorite} className="z-10">
+      <div className="w-full sm:w-1/2 h-full relative grow-1">
+        <div className="absolute h-8 w-8 rounded-full bg-white flex items-center justify-center top-2 right-2 z-10">
+          <button onClick={toggleFavorite}>
             {isFavorite ? (
               <HeartIcon className="h-6 w-6 text-red-500" />
             ) : (
@@ -66,14 +68,19 @@ const ComicSliderItem = ({
             )}
           </button>
         </div>
-        <div className="rating-container-mobile sm:hidden flex flex-row justify-end w-full absolute bottom-2">
+        <div className="rating-container-mobile sm:hidden flex flex-row justify-end w-full absolute bottom-2 z-10">
           <ComicRating rating={item.rating} />
         </div>
         <button
           id={wrapperImageId}
-          className="w-full h-full flex flex-col z-8"
+          className="w-full h-full flex flex-col z-8 items-center"
           onClick={handleOnPress}>
-          <Image src={item.image} alt={item.title} className="object-contain max-h-full" />
+          <Image
+            src={item.image}
+            alt={item.title}
+            className="object-contain max-h-full relative object-top"
+            fill
+          />
         </button>
       </div>
       <div className="w-full sm:w-1/2 grid-flow-col text-right grow-3 pt-2 sm:pt-0">
@@ -111,9 +118,9 @@ function ComicRating({ rating }: { rating: number }) {
   return rating > 0 ? (
     <>
       {Array.from({ length: 5 }).map((_, index) => {
-        const cssClass = 'size-5 lg:size-6 text-blue-500';
+        const cssClass = 'size-5 lg:size-6 text-blue-500 shadow-xl';
         return index < rating ? (
-          <StarIcon key={`itemRating_${index}`} className={`star-icon-solid ${cssClass}`} />
+          <StarIcon key={`itemRating_${index}`} className={`star-icon-solid ${cssClass} `} />
         ) : (
           <StarIconOutline
             key={`itemRating_${index}`}
