@@ -7,6 +7,7 @@ describe('ComicSliderItem', () => {
     const { container } = render(
       <ComicSliderItem
         item={{
+          id: 'zdsd',
           image: '',
           title: 'title',
           author: 'author',
@@ -39,6 +40,7 @@ describe('ComicSliderItem', () => {
     const { container } = render(
       <ComicSliderItem
         item={{
+          id: 'zdsd',
           image: '',
           title: 'title',
           author: 'author',
