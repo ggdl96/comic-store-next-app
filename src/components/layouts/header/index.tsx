@@ -5,7 +5,7 @@ import { headerHeightClass, zIndexHeaderClass } from '../../../styles/layout';
 function Header() {
   return (
     <header
-      className={`header-top bg-white fixed w-full ${headerHeightClass}  ${zIndexHeaderClass} top-0 left-0 right-0`}>
+      className={`header-top bg-white fixed w-full ${headerHeightClass} ${zIndexHeaderClass} top-0 left-0 right-0`}>
       <MainDefault>
         <nav
           className="flex flex-row items-center justify-between py-6 lg:py-8 col-span-8 relative"
@@ -19,8 +19,7 @@ function Header() {
                 id="headerComicStoreLogo"
                 src={require('../../../assets/svg/logo-image-header.svg')}
                 alt={'Comic Store Logo'}
-                width={70}
-                height={70}
+                height={48}
               />
             </Link>
           </div>

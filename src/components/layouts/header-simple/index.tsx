@@ -15,8 +15,7 @@ function HeaderSimple({ title = '' }: { title?: string }) {
                 id="headerComicStoreLogo"
                 src={require('../../../assets/svg/logo-image-header.svg')}
                 alt={'Comic Store Logo'}
-                width={70}
-                height={70}
+                height={48}
               />
             </Link>
           </div>
