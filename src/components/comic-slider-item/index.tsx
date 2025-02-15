@@ -6,7 +6,7 @@ import ComicRating from '../comic-rating';
 import ComicItemFavorite from '../comic-item-favorite';
 
 interface Props {
-  item: ComicItem;
+  item?: ComicItem;
 }
 
 const ComicSliderItem = ({
