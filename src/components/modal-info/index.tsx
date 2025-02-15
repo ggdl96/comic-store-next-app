@@ -12,7 +12,6 @@ function ModalInfo() {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleOnClickBackground: MouseEventHandler<HTMLDivElement> = e => {
-    console.log(e.target, e.currentTarget.className);
     if (e.target === e.currentTarget) {
       dispatch(toggleDisplay());
     }

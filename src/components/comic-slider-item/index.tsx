@@ -1,27 +1,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { StarIcon, HeartIcon } from '@heroicons/react/24/solid';
-import {
-  StarIcon as StarIconOutline,
-  HeartIcon as HeartIconOutline,
-} from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
+import { ComicItem } from '../../model/components/ComicItem';
+import ComicRating from '../comic-rating';
+import ComicItemFavorite from '../comic-item-favorite';
 
-// TODO: Extract it to another file if necessary
 interface Props {
-  // TODO: This should be required, currently it's optional
-  item?: {
-    id: string;
-    image: string;
-    title: string;
-    author: string;
-    price: {
-      value: number;
-      currency: string;
-    };
-    category: string;
-    rating: number;
-  };
+  item: ComicItem;
 }
 
 const ComicSliderItem = ({
@@ -59,15 +44,7 @@ const ComicSliderItem = ({
         <p className="text-xs sm:hidden">{item.category}</p>
       </div>
       <div className="w-full sm:w-1/2 h-full relative grow-1">
-        <div className="absolute h-8 w-8 rounded-full bg-white flex items-center justify-center top-2 right-2 z-10">
-          <button onClick={toggleFavorite}>
-            {isFavorite ? (
-              <HeartIcon className="h-6 w-6 text-red-500" />
-            ) : (
-              <HeartIconOutline className="h-6 w-6 text-gray-500" />
-            )}
-          </button>
-        </div>
+        <ComicItemFavorite />
         <div className="rating-container-mobile sm:hidden flex flex-row justify-end w-full absolute bottom-2 z-10">
           <ComicRating rating={item.rating} />
         </div>
@@ -112,22 +89,3 @@ const ComicSliderItem = ({
 };
 
 export default ComicSliderItem;
-
-// TODO: Extract it to another file if necessary, both component and interface
-function ComicRating({ rating }: { rating: number }) {
-  return rating > 0 ? (
-    <>
-      {Array.from({ length: 5 }).map((_, index) => {
-        const cssClass = 'size-5 lg:size-6 text-blue-500 shadow-xl';
-        return index < rating ? (
-          <StarIcon key={`itemRating_${index}`} className={`star-icon-solid ${cssClass} `} />
-        ) : (
-          <StarIconOutline
-            key={`itemRating_${index}`}
-            className={`star-icon-outline ${cssClass}`}
-          />
-        );
-      })}
-    </>
-  ) : null;
-}
