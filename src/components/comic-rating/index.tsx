@@ -7,7 +7,7 @@ interface Props {
 
 export default function ComicRating({ rating }: Props) {
   return rating > 0 ? (
-    <div className="container-comic-rating">
+    <div className="container-comic-rating flex items-center">
       {Array.from({ length: 5 }).map((_, index) => {
         const cssClass = 'size-5 lg:size-6 text-blue-500 shadow-xl';
         return index < rating ? (
