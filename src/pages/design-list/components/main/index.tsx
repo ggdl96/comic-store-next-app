@@ -1,27 +1,23 @@
-import ComicSliderItem from '../../../../components/comic-slider-item';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { COMIC_LIST } from '../../../../../__mocks__/data/comics';
+import ContainerComics from '../../../../components/container-comics';
 import MainDefault from '../../../../components/layouts/main-default';
+import { setComicList, comicList } from '../../../../features/comic-list';
+import { AppDispatch } from '../../../../store';
 
 function Main() {
+  const dispatch = useDispatch<AppDispatch>();
+  const comics = useSelector(comicList);
+
+  useEffect(() => {
+    dispatch(setComicList([...COMIC_LIST]));
+  }, [dispatch]);
   return (
     <MainDefault emptyBackgroundColorClass="bg-empty">
       <section>
         <div>Results for: data</div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 py-2">
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-          <ComicSliderItem />
-        </div>
+        <ContainerComics comicList={comics} />
       </section>
     </MainDefault>
   );

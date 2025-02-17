@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import aboutInfo from '../features/aboutInfo';
 
 import comicsReducer from '../features/slice';
+import comicListReducer from '../features/comic-list';
 import comicDetailsReducer from '../features/comic-details';
 
 export const sagaMiddleware = createSagaMiddleware();
@@ -12,6 +13,7 @@ export const store = configureStore({
     comics: comicsReducer,
     aboutInfo: aboutInfo,
     comicDetails: comicDetailsReducer,
+    comicList: comicListReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(sagaMiddleware),
 });
