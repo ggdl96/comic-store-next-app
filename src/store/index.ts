@@ -5,6 +5,7 @@ import aboutInfo from '../features/aboutInfo';
 import comicsReducer from '../features/slice';
 import comicListReducer from '../features/comic-list';
 import comicDetailsReducer from '../features/comic-details';
+import cartReducer from '../features/cart';
 
 export const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     aboutInfo: aboutInfo,
     comicDetails: comicDetailsReducer,
     comicList: comicListReducer,
+    cart: cartReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(sagaMiddleware),
 });
