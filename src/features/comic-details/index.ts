@@ -19,7 +19,7 @@ export const comicDetailsSlice = createSlice({
     setComicItem: (state, action: PayloadAction<ComicItemDetail>) => {
       const comicItem = action.payload;
       if (comicItem) {
-        state.items = { ...state.items, [comicItem?.id ?? 'a']: comicItem };
+        state.items[comicItem?.id ?? 'a'] = comicItem;
       }
     },
   },
