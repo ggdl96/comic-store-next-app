@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { comicDetails, setComicItem } from '../../features/comic-details';
 import Button from '../button';
+import ButtonAddToCart from '../button-add-to-cart';
 import ComicItemFavorite from '../comic-item-favorite';
 import ComicRating from '../comic-rating';
 import MainDefault from '../layouts/main-default';
@@ -86,10 +87,12 @@ function DetailContent({ id }: Props) {
             </div>
             <div className="grid grid-rows-2 row-span-2">
               <div className="flex py-2">
-                <Button className="add-to-cart-btn">Add to cart</Button>
+                <ButtonAddToCart comic={item} />
               </div>
               <div className="flex py-2">
-                <Button className="buy-now-btn">Buy now</Button>
+                <Button className="buy-now-btn" onClick={function (): void {}}>
+                  Buy now
+                </Button>
               </div>
             </div>
           </section>
