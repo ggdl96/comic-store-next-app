@@ -1,28 +1,29 @@
-import Link from 'next/link';
-import Button from '../../../../components/button';
-import CartItem from '../../../../components/cart-item';
+import { useSelector } from 'react-redux';
 import MainCheckout from '../../../../components/layouts/main-checkout';
+import {
+  selectCartItems,
+  selectTotalCartPrice,
+  selectCartCurrency,
+} from '../../../../features/cart';
+import CartList from '../cart-list';
 
 function Main() {
+  const comicsInCart = useSelector(selectCartItems);
+  const price = useSelector(selectTotalCartPrice);
+  const currency = useSelector(selectCartCurrency);
+
+  const comicList = Object.keys(comicsInCart).map(key => comicsInCart[key]);
+
   return (
     <MainCheckout>
       <div className="w-full md:w-5/6 lg:w-4/6 xl:w-1/2">
-        <section>
-          <CartItem />
-          <CartItem />
-        </section>
-        <section>
-          <div className="flex flex-row justify-end py-4">
-            <span>total: $1234</span>
-          </div>
-        </section>
-        <section className="flex flex-row justify-center">
-          <div className="w-full sm:w-3/5 md:w-6/12 lg:w-5/12 xl:w-3/12">
-            <Link href="/design-checkout">
-              <Button className="checkout-button">Checkout</Button>
-            </Link>
-          </div>
-        </section>
+        {comicList.length === 0 ? (
+          <section className="flex justify-center items-center">
+            <p className="label-cart-empty">Empty Cart</p>
+          </section>
+        ) : (
+          <CartList comicsInCart={comicList} currency={currency} price={price} />
+        )}
       </div>
     </MainCheckout>
   );

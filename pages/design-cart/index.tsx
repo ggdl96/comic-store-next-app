@@ -1,14 +1,11 @@
-import Footer from '../../src/components/layouts/footer';
-import Header from '../../src/components/layouts/header';
+import LayoutDefault from '../../src/components/layouts/layout-default';
 import Main from '../../src/pages/design-cart/components/main';
 
 function DesignCart() {
   return (
-    <>
-      <Header />
+    <LayoutDefault>
       <Main />
-      <Footer />
-    </>
+    </LayoutDefault>
   );
 }
 
