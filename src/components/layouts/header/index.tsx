@@ -2,7 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MainDefault from '../main-default';
 import { headerHeightClass, zIndexHeaderClass } from '../../../styles/layout';
+import { useSelector } from 'react-redux';
+import { cartItemsCount } from '../../../features/cart';
 function Header() {
+  const itemCount = useSelector(cartItemsCount);
+
   return (
     <header
       className={`header-top bg-white fixed w-full ${headerHeightClass} ${zIndexHeaderClass} top-0 left-0 right-0`}>
@@ -39,6 +43,7 @@ function Header() {
           </div>
           <div className="flex flex-row grow-0 justify-end items-baseline">
             <Link href="/design-cart">
+              <p>{itemCount}</p>
               <h2>cart</h2>
             </Link>
           </div>
