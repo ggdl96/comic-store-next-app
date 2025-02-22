@@ -8,7 +8,11 @@ describe(`Navigating to ${url} renders correctly`, () => {
   it('displays the Comic Store logo', () => {
     cy.visit(`http://localhost:3000${url}`);
     header.verifyLogo();
+  });
 
-    cy.get('.checkout-button').contains('Checkout');
+  it('displays empty cart when no items added', () => {
+    cy.visit(`http://localhost:3000${url}`);
+
+    cy.get('.label-cart-empty').contains('Empty Cart');
   });
 });
