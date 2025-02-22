@@ -28,7 +28,7 @@ function Main() {
           </div>
           <div className="flex flex-row justify-center">
             <div className="w-full">
-              <Button>Pay Now</Button>
+              <Button onClick={() => {}}>Pay Now</Button>
             </div>
           </div>
         </section>
