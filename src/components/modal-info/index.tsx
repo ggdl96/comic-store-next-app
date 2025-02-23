@@ -24,7 +24,7 @@ function ModalInfo() {
     <div
       className="absolute flex flex-row justify-center items-center w-full backdrop-blur-sm top-0 bottom-0 z-[100]"
       onClick={handleOnClickBackground}>
-      <view className="bg-white max-w-full flex flex-col p-4 rounded-md shadow-[#00000021] shadow-sm z-[110]">
+      <div className="bg-white max-w-full flex flex-col p-4 rounded-md shadow-[#00000021] shadow-sm z-[110]">
         <div className="w-full flex flex-row justify-end">
           <button onClick={handleOnPressClose}>
             <CloseIcon color="primary" />
@@ -42,7 +42,7 @@ function ModalInfo() {
         <br></br>
         <h4>Email: </h4>
         <p>gustavogdeluca96@gmail.com</p>
-      </view>
+      </div>
     </div>
   ) : null;
 }
