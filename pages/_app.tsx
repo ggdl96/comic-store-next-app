@@ -2,12 +2,13 @@ import '../styles/globals.css';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 
-import { store, sagaMiddleware } from '../src/store';
+import { store, sagaMiddleware, persistor } from '../src/store';
 import buildSaga from '../src/features/sagas';
 import Requester from '../src/model/RequesterSuccess';
 import { ComicStore } from '../src/model/ComicStore/ComicStore';
 import { AppProps } from 'next/app';
 import Layout from '../src/components/layouts/root';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const requester = new Requester(['comic 1', 'comic 2']);
 
@@ -31,7 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <PersistGate loading={null} persistor={persistor}>
+          <Component {...pageProps} />
+        </PersistGate>
       </Provider>
     </Layout>
   );
