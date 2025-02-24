@@ -1,19 +1,29 @@
 import { useDispatch } from 'react-redux';
 import { addComicItemToCart } from '../../features/cart';
-import { ComicItemDetail } from '../../model/components/ComicItemDetail';
+import { ComicItemCart } from '../../model/components/ComicItemCart';
 import { AppDispatch } from '../../store';
 import Button from '../button';
 
-const ButtonAddToCart = ({ comic }: { comic: ComicItemDetail }) => {
+const ButtonAddToCart = ({
+  comic,
+  text = 'Add to cart',
+}: {
+  comic: ComicItemCart;
+  text?: string;
+}) => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const handleOnClick = function (): void {
+    dispatch(addComicItemToCart(comic));
+  };
+
+  if (comic.stock === 0) {
+    return <p className="no-stock-label">No stock</p>;
+  }
+
   return (
-    <Button
-      className="add-to-cart-btn"
-      onClick={function (): void {
-        dispatch(addComicItemToCart(comic));
-      }}>
-      Add to cart
+    <Button className="add-to-cart-btn" onClick={handleOnClick}>
+      {text}
     </Button>
   );
 };

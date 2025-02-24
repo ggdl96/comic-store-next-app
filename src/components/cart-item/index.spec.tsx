@@ -10,7 +10,6 @@ describe('CartItem test', () => {
           id: 'se',
           image: '',
           title: 'title',
-          description: 'des',
           category: 'cat',
           price: {
             value: 22,
@@ -18,6 +17,8 @@ describe('CartItem test', () => {
           },
           author: 'auh',
           rating: 2,
+          stock: 12,
+          quantity: 3,
         }}
         onDelete={() => {}}
       />,
@@ -39,7 +40,6 @@ describe('CartItem test', () => {
           id: 'se',
           image: '',
           title: 'title',
-          description: 'des',
           category: 'cat',
           price: {
             value: 22,
@@ -47,6 +47,8 @@ describe('CartItem test', () => {
           },
           author: 'auh',
           rating: 2,
+          stock: 12,
+          quantity: 3,
         }}
         onDelete={handleOnDelete}
       />,

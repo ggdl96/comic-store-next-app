@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { MouseEventHandler } from 'react';
-import { ComicItemDetail } from '../../model/components/ComicItemDetail';
+import { ComicItemCart } from '../../model/components/ComicItemCart';
 
 function ItemQuantity() {
   return <div className="flex justify-end">- 1 +</div>;
 }
 
 interface Props {
-  item: ComicItemDetail;
+  item: ComicItemCart;
   onDelete: MouseEventHandler<HTMLButtonElement>;
 }
 

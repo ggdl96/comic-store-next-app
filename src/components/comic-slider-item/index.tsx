@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ComicItem } from '../../model/components/ComicItem';
 import ComicRating from '../comic-rating';
 import ComicItemFavorite from '../comic-item-favorite';
+import ButtonAddToCart from '../button-add-to-cart';
 
 interface Props {
   item?: ComicItem;
@@ -21,16 +21,11 @@ const ComicSliderItem = ({
     },
     category: 'Classic',
     rating: 3,
+    stock: 1,
   },
 }: Props) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const router = useRouter();
   const wrapperImageId = `wrapperItemImage-${item.title}`;
-
-  // TODO THIS PROBABLY CAN BE EXTRACTED TO A REDUX STATE
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
 
   const handleOnPress = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (event.currentTarget.id === wrapperImageId || event.currentTarget === event.target) {
@@ -69,19 +64,13 @@ const ComicSliderItem = ({
         </div>
         <div className="flex items-center justify-end">
           <div className="sm:hidden">
-            <button
-              value="ADD TO CART"
-              className="bg-primary-1000 text-white p-2 rounded-md text-sm">
-              <p className="cart-button-text-mobile">Cart</p>
-            </button>
+            <ButtonAddToCart comic={{ ...item, quantity: 1 }} text="Cart" />
           </div>
           <p className="text-xs text-blue-500 mr-2">({item.price.currency})</p>
           <p className="font-bold text-lg lg:text-3xl">{item.price.value}</p>
         </div>
         <div className="hidden sm:flex flex-row justify-end py-2 lg:py-4">
-          <button value="ADD TO CART" className="bg-primary-1000 text-white p-2 rounded-md text-sm">
-            <p className="cart-button-text-desktop">ADD TO CART</p>
-          </button>
+          <ButtonAddToCart comic={{ ...item, quantity: 1 }} text="Add to cart" />
         </div>
       </div>
     </div>

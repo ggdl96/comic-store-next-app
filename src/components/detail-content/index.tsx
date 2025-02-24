@@ -30,6 +30,7 @@ function DetailContent({ id }: Props) {
         category: 'Generic Category',
         rating: 5,
         description: 'This is a normal description',
+        stock: 12,
       }),
     );
   }, [dispatch, id]);
@@ -87,7 +88,7 @@ function DetailContent({ id }: Props) {
             </div>
             <div className="grid grid-rows-2 row-span-2">
               <div className="flex py-2">
-                <ButtonAddToCart comic={item} />
+                <ButtonAddToCart comic={{ ...item, quantity: 1 }} />
               </div>
               <div className="flex py-2">
                 <Button className="buy-now-btn" onClick={function (): void {}}>

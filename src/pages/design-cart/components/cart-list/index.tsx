@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import Button from '../../../../components/button';
 import CartItem from '../../../../components/cart-item';
 import { removeComicItemFromCart } from '../../../../features/cart';
-import { ComicItemDetail } from '../../../../model/components/ComicItemDetail';
+import { ComicItemCart } from '../../../../model/components/ComicItemCart';
 import { AppDispatch } from '../../../../store';
 
 interface PropsCartList {
-  comicsInCart: ComicItemDetail[];
+  comicsInCart: ComicItemCart[];
   currency: string;
   price: number;
 }

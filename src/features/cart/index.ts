@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ComicItemDetail } from '../../model/components/ComicItemDetail';
+import { ComicItemCart } from '../../model/components/ComicItemCart';
 import { RootState } from '../../store';
 
 export interface CartState {
   items: {
-    [key: string]: ComicItemDetail;
+    [key: string]: ComicItemCart;
   };
   currency: string;
 }
@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addComicItemToCart: (state, action: PayloadAction<ComicItemDetail>) => {
+    addComicItemToCart: (state, action: PayloadAction<ComicItemCart>) => {
       const comicItem = action.payload;
       // Add the comic item to the cart items
       state.items[comicItem.id] = comicItem;
