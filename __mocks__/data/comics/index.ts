@@ -10,6 +10,7 @@ export const COMIC_LIST = [
     },
     category: 'Classic',
     rating: 3,
+    stock: 12,
   },
   {
     id: 'jklfd4453f34gf',
@@ -22,6 +23,7 @@ export const COMIC_LIST = [
     },
     category: 'Classic',
     rating: 3,
+    stock: 12,
   },
   {
     id: 'h1a4a5b1f1',
@@ -34,6 +36,7 @@ export const COMIC_LIST = [
     },
     category: 'Fantasy',
     rating: 4,
+    stock: 11,
   },
   {
     id: 'a1b2c3d4e5',
@@ -46,6 +49,7 @@ export const COMIC_LIST = [
     },
     category: 'Action',
     rating: 4,
+    stock: 12,
   },
   {
     id: 'f6g7h8i9j0',
@@ -58,6 +62,7 @@ export const COMIC_LIST = [
     },
     category: 'Adventure',
     rating: 5,
+    stock: 16,
   },
   {
     id: 'k1l2m3n4o5',
@@ -70,6 +75,7 @@ export const COMIC_LIST = [
     },
     category: 'Fantasy',
     rating: 4,
+    stock: 15,
   },
   {
     id: 'p6q7r8s9t0',
@@ -82,6 +88,7 @@ export const COMIC_LIST = [
     },
     category: 'Action',
     rating: 3,
+    stock: 11,
   },
   {
     id: 'u1v2w3x4y5',
@@ -94,8 +101,8 @@ export const COMIC_LIST = [
     },
     category: 'Manga',
     rating: 4,
+    stock: 3,
   },
-  // Ítems generados adicionalmente
   {
     id: 'm9n8o7p6q5',
     image: '/comic-mystery-7.png',
@@ -107,6 +114,7 @@ export const COMIC_LIST = [
     },
     category: 'Mystery',
     rating: 4,
+    stock: 3,
   },
   {
     id: 'z1x2c3v4b5',
@@ -119,6 +127,7 @@ export const COMIC_LIST = [
     },
     category: 'Sci-Fi',
     rating: 5,
+    stock: 5,
   },
   {
     id: 'q1w2e3r4t5',
@@ -131,6 +140,7 @@ export const COMIC_LIST = [
     },
     category: 'Horror',
     rating: 3,
+    stock: 22,
   },
   {
     id: 'a9s8d7f6g5',
@@ -143,6 +153,7 @@ export const COMIC_LIST = [
     },
     category: 'Fantasy',
     rating: 5,
+    stock: 22,
   },
   {
     id: 'l5k4j3h2g1',
@@ -155,6 +166,7 @@ export const COMIC_LIST = [
     },
     category: 'Adventure',
     rating: 4,
+    stock: 32,
   },
   {
     id: 'r1t2y3u4i5',
@@ -167,6 +179,7 @@ export const COMIC_LIST = [
     },
     category: 'Action',
     rating: 4,
+    stock: 17,
   },
   {
     id: 'o9i8u7y6t5',
@@ -179,6 +192,7 @@ export const COMIC_LIST = [
     },
     category: 'Romance',
     rating: 3,
+    stock: 42,
   },
   {
     id: 'p0o9i8u7y6',
@@ -191,6 +205,7 @@ export const COMIC_LIST = [
     },
     category: 'Comedy',
     rating: 5,
+    stock: 21,
   },
   {
     id: 's1d2f3g4h5',
@@ -203,6 +218,7 @@ export const COMIC_LIST = [
     },
     category: 'Mystery',
     rating: 3,
+    stock: 22,
   },
   {
     id: 'j9k8l7m6n5',
@@ -215,6 +231,7 @@ export const COMIC_LIST = [
     },
     category: 'Sci-Fi',
     rating: 4,
+    stock: 5,
   },
   {
     id: 'v1b2n3m4q5',
@@ -227,6 +244,7 @@ export const COMIC_LIST = [
     },
     category: 'Horror',
     rating: 4,
+    stock: 2,
   },
   {
     id: 'z9x8c7v6b5',
@@ -239,6 +257,7 @@ export const COMIC_LIST = [
     },
     category: 'Fantasy',
     rating: 5,
+    stock: 5,
   },
   {
     id: 'm0n9b8v7c6',
@@ -251,6 +270,7 @@ export const COMIC_LIST = [
     },
     category: 'Adventure',
     rating: 3,
+    stock: 11,
   },
   {
     id: 'l2k3j4h5g6',
@@ -263,6 +283,7 @@ export const COMIC_LIST = [
     },
     category: 'Action',
     rating: 5,
+    stock: 9,
   },
   {
     id: 'q9w8e7r6t5',
@@ -275,6 +296,7 @@ export const COMIC_LIST = [
     },
     category: 'Manga',
     rating: 4,
+    stock: 22,
   },
   {
     id: 'a8s7d6f5g4',
@@ -287,6 +309,7 @@ export const COMIC_LIST = [
     },
     category: 'Romance',
     rating: 4,
+    stock: 2,
   },
   {
     id: 'h5g4f3d2s1',
@@ -299,6 +322,7 @@ export const COMIC_LIST = [
     },
     category: 'Comedy',
     rating: 5,
+    stock: 1,
   },
   {
     id: 'p1o2i3u4y7',
@@ -311,6 +335,7 @@ export const COMIC_LIST = [
     },
     category: 'Horror',
     rating: 3,
+    stock: 0,
   },
   {
     id: 't1r2e3w4q5',
@@ -323,6 +348,7 @@ export const COMIC_LIST = [
     },
     category: 'Sci-Fi',
     rating: 4,
+    stock: 13,
   },
   {
     id: 'x1c2v3b4n5',
@@ -335,5 +361,6 @@ export const COMIC_LIST = [
     },
     category: 'Mystery',
     rating: 4,
+    stock: 14,
   },
 ] as const;
