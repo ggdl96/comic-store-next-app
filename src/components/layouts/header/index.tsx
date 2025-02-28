@@ -3,9 +3,9 @@ import Link from 'next/link';
 import MainDefault from '../main-default';
 import { headerHeightClass, zIndexHeaderClass } from '../../../styles/layout';
 import { useSelector } from 'react-redux';
-import { cartItemsCount } from '../../../features/cart';
+import { cartItemsCountMenu } from '../../../features/cart';
 function Header() {
-  const itemCount = useSelector(cartItemsCount);
+  const itemCount = useSelector(cartItemsCountMenu);
 
   return (
     <header
@@ -42,8 +42,8 @@ function Header() {
             <h2 className="text-xl max-sm:hidden px-6">search</h2>
           </div>
           <div className="flex flex-row grow-0 justify-end items-baseline">
-            <Link href="/design-cart">
-              <p>{itemCount}</p>
+            <Link className="cart-menu-option flex items-center" href="/design-cart">
+              <p className="cart-menu-quantity px-2">{itemCount}</p>
               <h2>cart</h2>
             </Link>
           </div>
