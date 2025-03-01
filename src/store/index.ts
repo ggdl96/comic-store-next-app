@@ -10,6 +10,8 @@ import comicsReducer from '../features/slice';
 import comicListReducer from '../features/comic-list';
 import comicDetailsReducer from '../features/comic-details';
 import cartReducer from '../features/cart';
+import comicsHomeReducer from '../features/comics-home';
+import comicsBestsellersReducer from '../features/comics-bestsellers';
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +28,8 @@ const rootReducer = combineReducers({
   comicDetails: comicDetailsReducer,
   comicList: comicListReducer,
   cart: cartPersistedReducer,
+  comicsHome: comicsHomeReducer,
+  comicsBestsellers: comicsBestsellersReducer,
 });
 
 export const store = configureStore({
