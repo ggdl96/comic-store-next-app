@@ -18,7 +18,7 @@ In order to run this project, you will need node and npm. A convenient way is to
 after that, run
 
 ```bash
-nvm install 16
+nvm install 22
 ```
 
 ```bash
