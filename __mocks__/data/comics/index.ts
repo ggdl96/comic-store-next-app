@@ -364,3 +364,9 @@ export const COMIC_LIST = [
     stock: 14,
   },
 ] as const;
+
+const idsBestsellersAllTime = ['x1c2v3b4n5', 'p1o2i3u4y7', 'l5k4j3h2g1', 'h1a4a5b1f1'];
+
+export const BESTSELLERS_ALL_TIME = idsBestsellersAllTime.map(
+  item => COMIC_LIST.find(cItem => cItem.id === item) ?? { ...COMIC_LIST[0], id: item },
+);
