@@ -1,24 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ComicSliderItem from '.';
+import AppProvidersTest from '../../utils/test/app-providers-test';
 
 describe('ComicSliderItem', () => {
   it('given 0 rating, it should not display stars', async () => {
     const { container } = render(
-      <ComicSliderItem
-        item={{
-          id: 'zdsd',
-          image: '',
-          title: 'title',
-          author: 'author',
-          price: {
-            value: 112,
-            currency: 'USD',
-          },
-          category: 'category',
-          rating: 0,
-        }}
-      />,
+      <AppProvidersTest>
+        <ComicSliderItem
+          item={{
+            id: 'zdsd',
+            image: '',
+            title: 'title',
+            author: 'author',
+            price: {
+              value: 112,
+              currency: 'USD',
+            },
+            category: 'category',
+            rating: 0,
+            stock: 12,
+          }}
+        />
+      </AppProvidersTest>,
     );
 
     const titleElement = screen.getByText('title');
@@ -38,20 +42,23 @@ describe('ComicSliderItem', () => {
 
   it('given 1 rating, it should display  1 solid star and 4 outline stars', async () => {
     const { container } = render(
-      <ComicSliderItem
-        item={{
-          id: 'zdsd',
-          image: '',
-          title: 'title',
-          author: 'author',
-          price: {
-            value: 112,
-            currency: 'USD',
-          },
-          category: 'category',
-          rating: 1,
-        }}
-      />,
+      <AppProvidersTest>
+        <ComicSliderItem
+          item={{
+            id: 'zdsd',
+            image: '',
+            title: 'title',
+            author: 'author',
+            price: {
+              value: 112,
+              currency: 'USD',
+            },
+            category: 'category',
+            rating: 1,
+            stock: 12,
+          }}
+        />
+      </AppProvidersTest>,
     );
 
     const titleElement = screen.getByText('title');

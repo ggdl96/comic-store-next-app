@@ -2,14 +2,14 @@ import { useSelector } from 'react-redux';
 import MainCheckout from '../../../../components/layouts/main-checkout';
 import {
   selectCartItems,
-  selectTotalCartPrice,
   selectCartCurrency,
+  selectTotalCartPriceFormatted,
 } from '../../../../features/cart';
 import CartList from '../cart-list';
 
 function Main() {
   const comicsInCart = useSelector(selectCartItems);
-  const price = useSelector(selectTotalCartPrice);
+  const price = useSelector(selectTotalCartPriceFormatted);
   const currency = useSelector(selectCartCurrency);
 
   const comicList = Object.keys(comicsInCart).map(key => comicsInCart[key]);

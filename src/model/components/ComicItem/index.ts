@@ -9,4 +9,5 @@ export interface ComicItem {
   };
   category: string;
   rating: number;
+  stock: number;
 }

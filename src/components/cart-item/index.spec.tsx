@@ -10,7 +10,6 @@ describe('CartItem test', () => {
           id: 'se',
           image: '',
           title: 'title',
-          description: 'des',
           category: 'cat',
           price: {
             value: 22,
@@ -18,8 +17,12 @@ describe('CartItem test', () => {
           },
           author: 'auh',
           rating: 2,
+          stock: 12,
+          quantity: 3,
         }}
         onDelete={() => {}}
+        onAdd={() => {}}
+        onSubtract={() => {}}
       />,
     );
 
@@ -39,7 +42,6 @@ describe('CartItem test', () => {
           id: 'se',
           image: '',
           title: 'title',
-          description: 'des',
           category: 'cat',
           price: {
             value: 22,
@@ -47,8 +49,12 @@ describe('CartItem test', () => {
           },
           author: 'auh',
           rating: 2,
+          stock: 12,
+          quantity: 3,
         }}
         onDelete={handleOnDelete}
+        onAdd={() => {}}
+        onSubtract={() => {}}
       />,
     );
 
@@ -59,5 +65,76 @@ describe('CartItem test', () => {
     }
     await userEvent.click(deleteElement);
     expect(handleOnDelete).toHaveBeenCalledTimes(1);
+  });
+
+  test('when press add action, must trigger on add', async () => {
+    const handleOnDelete = jest.fn(() => {});
+    const handleOnAdd = jest.fn(() => {});
+
+    const { container } = render(
+      <CartItem
+        item={{
+          id: 'se',
+          image: '',
+          title: 'title',
+          category: 'cat',
+          price: {
+            value: 22,
+            currency: 'USD',
+          },
+          author: 'auh',
+          rating: 2,
+          stock: 12,
+          quantity: 3,
+        }}
+        onDelete={handleOnDelete}
+        onAdd={handleOnAdd}
+        onSubtract={() => {}}
+      />,
+    );
+
+    const addElement = container.querySelector('.cart-add-item');
+
+    if (addElement === null) {
+      throw new Error('No Add Element');
+    }
+    await userEvent.click(addElement);
+    expect(handleOnAdd).toHaveBeenCalledTimes(1);
+  });
+
+  test('when press subtract action, must trigger on subtract', async () => {
+    const handleOnDelete = jest.fn(() => {});
+    const handleOnAdd = jest.fn(() => {});
+    const handleOnSubtract = jest.fn(() => {});
+
+    const { container } = render(
+      <CartItem
+        item={{
+          id: 'se',
+          image: '',
+          title: 'title',
+          category: 'cat',
+          price: {
+            value: 22,
+            currency: 'USD',
+          },
+          author: 'auh',
+          rating: 2,
+          stock: 12,
+          quantity: 3,
+        }}
+        onDelete={handleOnDelete}
+        onAdd={handleOnAdd}
+        onSubtract={handleOnSubtract}
+      />,
+    );
+
+    const deleteElement = container.querySelector('.cart-subtract-item');
+
+    if (deleteElement === null) {
+      throw new Error('No Subtract Element');
+    }
+    await userEvent.click(deleteElement);
+    expect(handleOnSubtract).toHaveBeenCalledTimes(1);
   });
 });
