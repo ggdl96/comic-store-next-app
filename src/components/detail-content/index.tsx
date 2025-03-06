@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { comicDetails, setComicItem } from '../../features/comic-details';
@@ -6,6 +5,7 @@ import Button from '../button';
 import ButtonAddToCart from '../button-add-to-cart';
 import ComicItemFavorite from '../comic-item-favorite';
 import ComicRating from '../comic-rating';
+import WrapperImage from '../wrapper-image';
 import MainDefault from '../layouts/main-default';
 
 interface Props {
@@ -53,7 +53,7 @@ function DetailContent({ id }: Props) {
             <div className="sm:hidden col-span-2 py-4 flex justify-end items-center relative">
               <ComicItemFavorite />
             </div>
-            <Image
+            <WrapperImage
               src={item.image}
               alt={item.title}
               fill

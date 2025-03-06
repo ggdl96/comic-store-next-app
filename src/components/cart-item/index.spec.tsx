@@ -8,7 +8,7 @@ describe('CartItem test', () => {
       <CartItem
         item={{
           id: 'se',
-          image: '',
+          image: '/comic-manga-21.png',
           title: 'title',
           category: 'cat',
           price: {
@@ -40,7 +40,7 @@ describe('CartItem test', () => {
       <CartItem
         item={{
           id: 'se',
-          image: '',
+          image: '/comic-manga-21.png',
           title: 'title',
           category: 'cat',
           price: {
@@ -75,7 +75,7 @@ describe('CartItem test', () => {
       <CartItem
         item={{
           id: 'se',
-          image: '',
+          image: '/comic-cyberpunk-1.png',
           title: 'title',
           category: 'cat',
           price: {
@@ -111,7 +111,7 @@ describe('CartItem test', () => {
       <CartItem
         item={{
           id: 'se',
-          image: '',
+          image: '/comic-manga-21.png',
           title: 'title',
           category: 'cat',
           price: {

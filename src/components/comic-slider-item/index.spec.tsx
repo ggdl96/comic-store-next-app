@@ -10,7 +10,7 @@ describe('ComicSliderItem', () => {
         <ComicSliderItem
           item={{
             id: 'zdsd',
-            image: '',
+            image: '/comic-manga-21.png',
             title: 'title',
             author: 'author',
             price: {
@@ -46,7 +46,7 @@ describe('ComicSliderItem', () => {
         <ComicSliderItem
           item={{
             id: 'zdsd',
-            image: '',
+            image: '/comic-manga-21.png',
             title: 'title',
             author: 'author',
             price: {

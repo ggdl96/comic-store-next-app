@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ComicItem } from '../../model/components/ComicItem';
 import ComicRating from '../comic-rating';
 import ComicItemFavorite from '../comic-item-favorite';
 import ButtonAddToCart from '../button-add-to-cart';
+import WrapperImage from '../wrapper-image';
 
 interface Props {
   item?: ComicItem;
@@ -47,7 +47,7 @@ const ComicSliderItem = ({
           id={wrapperImageId}
           className="w-full h-full flex flex-col z-8 items-center"
           onClick={handleOnPress}>
-          <Image
+          <WrapperImage
             src={item.image}
             alt={item.title}
             className="object-contain max-h-full relative object-top"

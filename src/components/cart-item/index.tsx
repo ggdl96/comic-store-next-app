@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { MouseEventHandler } from 'react';
 import { ComicItemCart } from '../../model/components/ComicItemCart';
+import WrapperImage from '../wrapper-image';
 interface ItemQuantityProps {
   onAdd: () => void;
   onSubtract: () => void;
@@ -37,7 +37,7 @@ function CartItem({ item, onDelete, onAdd, onSubtract }: Props) {
     <div className="cart-item w-full h-36 grid-rows-2 sm:grid-rows-1">
       <div className="grid grid-cols-12 w-full h-24 sm:h-36">
         <div className="bg-blue-500 col-span-3 sm:col-span-2 relative">
-          <Image
+          <WrapperImage
             src={item.image}
             alt={item.title}
             fill
