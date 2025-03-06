@@ -157,7 +157,7 @@ export const COMIC_LIST = [
   },
   {
     id: 'l5k4j3h2g1',
-    image: '/comic-adventure-11.png',
+    image: '/lost-explorer-adventure.png',
     title: 'Lost Explorer',
     author: 'Kevin Moore',
     price: {
@@ -326,7 +326,7 @@ export const COMIC_LIST = [
   },
   {
     id: 'p1o2i3u4y7',
-    image: '/comic-horror-24.png',
+    image: '/haunted-harvest.png',
     title: 'Haunted Harvest',
     author: 'Xander Reed',
     price: {
@@ -352,7 +352,7 @@ export const COMIC_LIST = [
   },
   {
     id: 'x1c2v3b4n5',
-    image: '/comic-mystery-26.png',
+    image: '/secret-society.png',
     title: 'Secret Society',
     author: 'Zachary Fox',
     price: {
