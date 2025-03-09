@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { MouseEventHandler } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleDisplay } from '../../../features/aboutInfo';
 import { AppDispatch } from '../../../store';
+import InternalLink from '../../internal-link';
 import MainDefault from '../main-default';
 
 const Footer = () => {
@@ -16,23 +16,21 @@ const Footer = () => {
       <MainDefault>
         <div className="flex flex-row justify-between">
           <section className="flex">
-            <Link href={'/design-list'} className="text-font-main-default dark:text-font-main-dark">
-              All
-            </Link>
+            <InternalLink href="/design-list">All</InternalLink>
           </section>
           <section className="flex">
-            <h3>brands</h3>
+            <InternalLink href="/design-brands">Brands</InternalLink>
           </section>
           <section className="flex">
-            <Link href={'/design-policy'}>Policy</Link>
+            <InternalLink href="/design-policy">Policy</InternalLink>
           </section>
           <section className="flex">
             <button onClick={handleOnClickContact}>
-              <h3>Contact</h3>
+              <h3 className="text-font-main-dark font-normal">Contact</h3>
             </button>
           </section>
           <section className="flex">
-            <Link href={'/design-about'}>About</Link>
+            <InternalLink href="/design-about">About</InternalLink>
           </section>
         </div>
       </MainDefault>

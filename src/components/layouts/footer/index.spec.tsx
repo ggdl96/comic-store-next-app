@@ -17,7 +17,7 @@ describe('Footer test', () => {
     const labelAll = await screen.findAllByText('All');
     const labelContact = await screen.findAllByText('Contact');
     const labelAbout = await screen.findAllByText('About');
-    const labelBrands = await screen.findAllByText('brands');
+    const labelBrands = await screen.findAllByText('Brands');
     const labelPolicy = await screen.findAllByText('Policy');
 
     expect(labelAll.length).toBe(1);
