@@ -12,6 +12,7 @@ import comicDetailsReducer from '../features/comic-details';
 import cartReducer from '../features/cart';
 import comicsHomeReducer from '../features/comics-home';
 import comicsBestsellersReducer from '../features/comics-bestsellers';
+import brandListReducer from '../features/comic-brands';
 
 const persistConfig = {
   key: 'root',
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   cart: cartPersistedReducer,
   comicsHome: comicsHomeReducer,
   comicsBestsellers: comicsBestsellersReducer,
+  brandList: brandListReducer,
 });
 
 export const store = configureStore({
