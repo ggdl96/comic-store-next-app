@@ -29,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       console.log('Message from server ', event.data);
     });
   }, []);
+
   return (
     <Layout>
       <Provider store={store}>
