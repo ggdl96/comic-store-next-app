@@ -37,6 +37,6 @@ jobs:
         run: npm run cypress:headless
 
       - name: GGDL96GithubAction
-        uses: ggdl96/ts-github-action-test@1.0.0
+        uses: ggdl96/ts-github-action-test@1.0.1
         with:
           message: Hi, this is for test!
