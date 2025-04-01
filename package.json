@@ -22,6 +22,7 @@
     "@mui/icons-material": "^6.2.0",
     "@mui/material": "^6.2.0",
     "@reduxjs/toolkit": "^1.9.0",
+    "dompurify": "^3.2.4",
     "eslint-config-next": "^14.2.5",
     "next": "^14.2.5",
     "prop-types": "^15.8.1",
